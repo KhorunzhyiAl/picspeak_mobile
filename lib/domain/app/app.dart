@@ -1,13 +1,16 @@
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:picspeak/domain/app/app_state/app_state.dart';
 import 'package:picspeak/domain/app/app_data/app_data.dart';
+import 'package:picspeak/domain/models/channel_model.dart';
 
 class App {
   App();
 
   ValueListenable<AppState> get state => _state;
+  ValueNotifier<Option<ChannelModel>> currentChannel = ValueNotifier(const None());
 
   Future<AppState> loadLocalData() async {
     if (_state.value is! Empty) {

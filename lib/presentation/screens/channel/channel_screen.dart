@@ -2,11 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:picspeak/domain/app/app.dart';
-import 'package:picspeak/domain/app/app_data/app_data.dart';
 import 'package:picspeak/domain/data/presentation.dart';
-import 'package:picspeak/domain/data/channel.dart';
 import 'package:picspeak/domain/models/channel_model.dart';
-import 'package:picspeak/domain/utils/loading_state/loading_state.dart';
+import 'package:picspeak/presentation/other/white_noise_widget.dart';
+import 'package:picspeak/presentation/screens/channel/widgets/broadcast.dart';
 import 'package:provider/provider.dart';
 
 class ChannelScreen extends StatefulWidget {
@@ -38,12 +37,10 @@ class _ChannelScreenState extends State<ChannelScreen> {
   @override
   Widget build(BuildContext context) {
     final nav = Navigator.of(context);
+    final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.brown.shade200,
-        foregroundColor: Colors.black,
-        shadowColor: Colors.transparent,
         title: AnimatedBuilder(
           animation: channelModel,
           builder: (context, child) {
@@ -63,34 +60,19 @@ class _ChannelScreenState extends State<ChannelScreen> {
         ),
       ),
       body: Container(
-        color: Colors.grey.shade200,
+        color: theme.colorScheme.background,
         child: CustomScrollView(
           slivers: [
-            // ValueListenableBuilder(
-            //   valueListenable: room.roomData,
-            //   builder: (context, roomData, _) {
-            //     return SliverToBoxAdapter(child: SizedBox(
-            //       height: roomData.,
-            //       child: Card(
-            //         color: Colors.white,
-            //         elevation: 0,
-
-            //       ),
-            //     ));
-            //   }
-            // ),
+            SliverToBoxAdapter(
+              child: Broadcast(channelModel: channelModel),
+            ),
             SliverAppBar(
-              // collapsedHeight: 35,
               toolbarHeight: 35,
               automaticallyImplyLeading: false,
-              backgroundColor: Colors.brown.shade200,
-              foregroundColor: Colors.black,
-              shadowColor: Colors.transparent,
-              title: const Text(
-                'Saved presentations (надо лучше название)',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
+              title: Text(
+                'Saved presentations',
+                style: theme.textTheme.caption?.copyWith(
+                  color: theme.colorScheme.onPrimary,
                 ),
               ),
             ),
@@ -147,7 +129,6 @@ class _ChannelScreenState extends State<ChannelScreen> {
     return SizedBox(
       height: 100,
       child: Card(
-        color: Colors.white,
         elevation: 0,
         clipBehavior: Clip.hardEdge,
         child: Stack(
@@ -202,6 +183,7 @@ class _ChannelScreenState extends State<ChannelScreen> {
               type: MaterialType.transparency,
               child: InkWell(
                 onTap: () {},
+                splashColor: Theme.of(context).splashColor.withAlpha(100),
               ),
             ),
           ],

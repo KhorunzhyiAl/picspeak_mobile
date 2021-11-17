@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final nav = Navigator.of(context);
+    final theme = Theme.of(context);
 
     return Consumer<App>(builder: (context, app, _) {
       final channelMap = app.state.value.getAppData().channelMap;
@@ -21,6 +22,9 @@ class HomeScreen extends StatelessWidget {
 
       return Scaffold(
         appBar: AppBar(
+          backgroundColor: theme.colorScheme.primary,
+          foregroundColor: theme.colorScheme.onPrimary,
+          shadowColor: theme.shadowColor,
           leading: IconButton(
             onPressed: () {},
             icon: const Icon(Icons.menu),
@@ -39,12 +43,9 @@ class HomeScreen extends StatelessWidget {
               );
             },
           ),
-          shadowColor: Colors.transparent,
-          backgroundColor: Colors.brown.shade200,
-          foregroundColor: Colors.black,
         ),
         body: Container(
-          color: Colors.grey.shade100,
+          color: theme.colorScheme.background,
           child: AnimatedBuilder(
             animation: channelMapModel.channelMap,
             builder: (context, _) {
@@ -63,10 +64,11 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildListEntry(BuildContext context, Channel channel, NavigatorState nav) {
+    final theme = Theme.of(context);
     return SizedBox(
       height: 75,
       child: Card(
-        color: Colors.white,
+        color: theme.colorScheme.surface,
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         clipBehavior: Clip.hardEdge,
@@ -78,7 +80,6 @@ class HomeScreen extends StatelessWidget {
               child: Text(
                 channel.name,
                 style: const TextStyle(
-                  color: Colors.black,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),

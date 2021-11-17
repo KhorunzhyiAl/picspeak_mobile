@@ -3,6 +3,7 @@ import 'package:picspeak/domain/app/app.dart';
 import 'package:picspeak/presentation/navigation/routes.dart';
 import 'package:picspeak/presentation/screens/home/home_screen.dart';
 import 'package:picspeak/presentation/screens/splash_screen.dart';
+import 'package:picspeak/presentation/theme/themes.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -23,9 +24,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: MyThemes.light,
         routes: {
           Routes.splash: (context) {
             return const SplashScreen();
