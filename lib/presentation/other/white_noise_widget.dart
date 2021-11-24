@@ -42,35 +42,26 @@ class _WhiteNoisePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final p = Paint();
-    p.color = Colors.black;
-    p.strokeWidth = 1;
-    p.blendMode = BlendMode.clear;
+    p.strokeWidth = 5;
 
-    // final h = size.height;
-    // final w = size.width;
-    // for (int i = 0; i < 200; ++i) {
-    //   canvas.drawLine(
-    //     Offset(r.nextDouble() * w, r.nextDouble() * h),
-    //     Offset(r.nextDouble() * w, r.nextDouble() * h),
-    //     p,
-    //   );
-    // }
-    for (double i = 0; i < size.height - 4; i += 4) {
-      for (double j = 0; j < size.width - 3; j += 3) {
-        if (r.nextBool()) continue;
-
-        final o = r.nextDouble() * 2;
+    for (double i = 0; i < size.height - 5; i += 5) {
+      for (double j = 0; j < size.width; j += 4) {
+        final rShade = r.nextInt(40) + 120;
+        p.color = Color.fromARGB(255, rShade, rShade, rShade);
+        
         canvas.drawLine(
-          Offset(i, j + o),
-          Offset(i + 4, j + o),
+          Offset(i, j),
+          Offset(i + 6, j),
           p,
         );
       }
     }
+
+    canvas.clipRect(Rect.fromLTWH(0, 0, size.width, size.height));
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
+    return false;
   }
 }
