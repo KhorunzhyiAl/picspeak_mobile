@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:picspeak/domain/app/app.dart';
-import 'package:picspeak/domain/data/presentation.dart';
+import 'package:picspeak/domain/entities/presentation.dart';
 import 'package:picspeak/domain/models/channel_model.dart';
 import 'package:picspeak/presentation/other/white_noise_widget.dart';
 import 'package:picspeak/presentation/screens/channel/widgets/broadcast.dart';

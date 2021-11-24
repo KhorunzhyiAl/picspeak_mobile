@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:picspeak/domain/app/app.dart';
 import 'package:picspeak/domain/app/app_data/app_data.dart';
-import 'package:picspeak/domain/data/channel.dart';
+import 'package:picspeak/domain/entities/channel.dart';
 import 'package:picspeak/domain/utils/loading_state/loading_state.dart';
 
 class ChannelModel with ChangeNotifier {

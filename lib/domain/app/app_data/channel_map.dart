@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
-import 'package:picspeak/domain/data/channel.dart';
+import 'package:picspeak/domain/entities/channel.dart';
 
 /// Has methods like hashmap, but notifies listeners when values change.
 class ChannelMap with ChangeNotifier {

@@ -16,25 +16,39 @@ class WhiteNoise extends StatefulWidget {
 /// The only reason to use [TickerProviderStateMixin] over [SingleTickerProviderStateMixin], which
 /// is slightly more performant, is because the latter throws error on hot reload.
 class _WhiteNoiseState extends State<WhiteNoise> with TickerProviderStateMixin {
+  late final AnimationController anim;
+
+  @override
+  void initState() {
+    super.initState();
+    anim = AnimationController(
+      duration: const Duration(days: 1),
+      vsync: this,
+    );
+  }
+
+  @override
+  void dispose() {
+    anim.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: widget.height,
       width: widget.width,
       child: CustomPaint(
-        painter: _WhiteNoisePainter(vsync: this),
+        painter: _WhiteNoisePainter(anim: anim),
       ),
     );
   }
 }
 
 class _WhiteNoisePainter extends CustomPainter {
-  _WhiteNoisePainter({required TickerProvider vsync})
+  _WhiteNoisePainter({required AnimationController anim})
       : super(
-          repaint: AnimationController(
-            duration: const Duration(days: 1),
-            vsync: vsync,
-          )..forward(),
+          repaint: anim..forward(),
         );
 
   Random r = Random.secure();
@@ -48,7 +62,7 @@ class _WhiteNoisePainter extends CustomPainter {
       for (double j = 0; j < size.width; j += 4) {
         final rShade = r.nextInt(40) + 120;
         p.color = Color.fromARGB(255, rShade, rShade, rShade);
-        
+
         canvas.drawLine(
           Offset(i, j),
           Offset(i + 6, j),

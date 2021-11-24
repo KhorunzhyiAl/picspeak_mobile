@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:picspeak/domain/app/app.dart';
 import 'package:picspeak/domain/app/app_state/app_state.dart';
-import 'package:picspeak/domain/data/channel.dart';
+import 'package:picspeak/domain/entities/channel.dart';
 import 'package:picspeak/domain/models/channel_map_model.dart';
 import 'package:picspeak/presentation/screens/home/widgets/animated_text_switch.dart';
 import 'package:picspeak/presentation/screens/channel/channel_screen.dart';

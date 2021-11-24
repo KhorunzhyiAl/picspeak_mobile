@@ -1,6 +1,6 @@
 import 'package:picspeak/domain/app/app_data/channel_map.dart';
 import 'package:picspeak/domain/app/app_data/user_data.dart';
-import 'package:picspeak/domain/data/channel.dart';
+import 'package:picspeak/domain/entities/channel.dart';
 
 /// Allows to change and get notified about the changes in the global data.
 class AppData {

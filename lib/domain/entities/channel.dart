@@ -1,5 +1,5 @@
 // TODO: json_serializable
-import 'package:picspeak/domain/data/presentation.dart';
+import 'package:picspeak/domain/entities/presentation.dart';
 
 class Channel {
   final String id;
