@@ -4,6 +4,7 @@ import 'package:picspeak/domain/app/app.dart';
 import 'package:picspeak/domain/app/app_state/app_state.dart';
 import 'package:picspeak/domain/entities/channel.dart';
 import 'package:picspeak/domain/models/channel_map_model.dart';
+import 'package:picspeak/presentation/navigation/routes.dart';
 import 'package:picspeak/presentation/screens/home/widgets/animated_text_switch.dart';
 import 'package:picspeak/presentation/screens/channel/channel_screen.dart';
 import 'package:provider/provider.dart';
@@ -75,25 +76,43 @@ class HomeScreen extends StatelessWidget {
         child: Stack(
           fit: StackFit.passthrough,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-              child: Text(
-                channel.name,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+            Row(
+              children: [
+                AspectRatio(
+                  aspectRatio: 1,
+                  child: Image.network('https://picsum.photos/200'),
                 ),
-              ),
+                const SizedBox(width: 15),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        channel.name,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'Next event: Nov. 25',
+                        style: TextStyle(
+                          color: theme.colorScheme.onSurface.withOpacity(0.8),
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             Material(
               type: MaterialType.transparency,
               child: InkWell(
                 onTap: () {
-                  nav.push(MaterialPageRoute(
-                    builder: (context) {
-                      return ChannelScreen(channelId: channel.id);
-                    },
-                  ));
+                  nav.pushNamed(Routes.channel, arguments: {'channelId': channel.id});
                 },
               ),
             ),

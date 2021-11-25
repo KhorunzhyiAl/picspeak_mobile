@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:picspeak/domain/app/app.dart';
-import 'package:picspeak/domain/entities/presentation.dart';
 import 'package:picspeak/domain/models/channel_model.dart';
-import 'package:picspeak/presentation/other/white_noise_widget.dart';
-import 'package:picspeak/presentation/screens/channel/widgets/broadcast.dart';
+import 'package:picspeak/domain/utils/loading_state/lorem_ipsum.dart';
+import 'package:picspeak/presentation/screens/channel/widgets/broadcast_widget.dart';
+import 'package:picspeak/presentation/screens/channel/widgets/presentation_entry_widget.dart';
 import 'package:provider/provider.dart';
 
 class ChannelScreen extends StatefulWidget {
@@ -63,57 +63,136 @@ class _ChannelScreenState extends State<ChannelScreen> {
         color: theme.colorScheme.background,
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-              child: Broadcast(channelModel: channelModel),
-            ),
             SliverAppBar(
-              toolbarHeight: 35,
               automaticallyImplyLeading: false,
-              title: Text(
-                'Saved presentations',
-                style: theme.textTheme.caption?.copyWith(
-                  color: theme.colorScheme.onPrimary,
+              forceElevated: true,
+              collapsedHeight: 250,
+              expandedHeight: 250,
+              flexibleSpace: Container(
+                color: theme.colorScheme.surface,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Image.network(
+                        'https://picsum.photos/1200/200',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 100,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  channelModel.channelData.maybeMap(
+                                    ready: (a) => a.data.name,
+                                    orElse: () => '...',
+                                  ),
+                                  style: theme.textTheme.headline4?.copyWith(
+                                    color: theme.colorScheme.onSurface,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: SizedBox(
+                                  height: 40,
+                                  width: 170,
+                                  child: ElevatedButton(
+                                    onPressed: () {},
+                                    style: ButtonStyle(
+                                      elevation: MaterialStateProperty.all(0),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Text(
+                                          'Subscribe',
+                                          style: theme.textTheme.headline6?.copyWith(
+                                            color: theme.colorScheme.onPrimary,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
-            AnimatedBuilder(
-              animation: channelModel,
-              builder: (context, child) {
-                return channelModel.channelData.map(
-                  loading: (a) {
-                    return const SliverToBoxAdapter(
-                      child: SizedBox(
-                        height: 200,
-                        child: Center(child: Text('Loading...')),
-                      ),
-                    );
-                  },
-                  ready: (a) {
-                    return SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (context, index) {
-                          return _buildPresentationEntry(
-                            context: context,
-                            presentation: a.data.presentations[index],
-                            nav: nav,
-                          );
-                        },
-                        childCount: a.data.presentations.length,
-                      ),
-                    );
-                  },
-                  failed: (a) {
-                    return SliverToBoxAdapter(
-                      child: SizedBox(
-                        height: 200,
-                        child: Center(
-                          child: Text(a.message),
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 10,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                child: BroadcastWidget(channelModel: channelModel),
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+              sliver: SliverGrid.count(
+                crossAxisCount: 2,
+                mainAxisSpacing: 6,
+                crossAxisSpacing: 6,
+                children: <Widget>[
+                  _buildBigSquareButton(
+                    context,
+                    theme,
+                    text: 'Presentations',
+                    icon: Icons.save_alt,
+                    onTap: () {},
+                  ),
+                  _buildBigSquareButton(
+                    context,
+                    theme,
+                    text: 'Schedule',
+                    icon: Icons.schedule,
+                    onTap: () {},
+                  ),
+                  _buildBigSquareButton(
+                    context,
+                    theme,
+                    text: 'Recordings',
+                    icon: Icons.record_voice_over_outlined,
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            ),
+            const SliverToBoxAdapter(child: SizedBox(height: 8)),
+            SliverToBoxAdapter(
+              child: Container(
+                color: theme.colorScheme.secondaryVariant,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        lorem_ipsum_1,
+                        style: theme.textTheme.bodyText1?.copyWith(
+                          color: theme.colorScheme.onSecondary,
                         ),
                       ),
-                    );
-                  },
-                );
-              },
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
@@ -121,73 +200,46 @@ class _ChannelScreenState extends State<ChannelScreen> {
     );
   }
 
-  Widget _buildPresentationEntry({
-    required BuildContext context,
-    required Presentation presentation,
-    required NavigatorState nav,
+  Widget _buildBigSquareButton(
+    BuildContext context,
+    ThemeData theme, {
+    required String text,
+    required IconData icon,
+    required void Function() onTap,
   }) {
-    return SizedBox(
-      height: 100,
-      child: Card(
-        elevation: 0,
-        clipBehavior: Clip.hardEdge,
-        child: Stack(
-          children: [
-            Row(
+    return Card(
+      elevation: 0,
+      color: theme.colorScheme.surface,
+      margin: const EdgeInsets.all(0),
+      child: Stack(
+        fit: StackFit.passthrough,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                AspectRatio(
-                  aspectRatio: 1,
-                  child: Image.network(
-                    'https://picsum.photos/300/200',
-                    fit: BoxFit.cover,
+                Expanded(
+                  flex: 3,
+                  child: Icon(
+                    icon,
+                    size: 40,
                   ),
                 ),
-                const SizedBox(width: 10),
                 Expanded(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            presentation.title,
-                            style: const TextStyle(
-                              color: Colors.black87,
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Slides: ${presentation.slides.length}',
-                            style: const TextStyle(
-                              color: Colors.black54,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  flex: 1,
+                  child: Text(text, style: theme.textTheme.subtitle1),
                 ),
               ],
             ),
-            Material(
-              type: MaterialType.transparency,
-              child: InkWell(
-                onTap: () {},
-                splashColor: Theme.of(context).splashColor.withAlpha(100),
-              ),
+          ),
+          Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              onTap: onTap,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

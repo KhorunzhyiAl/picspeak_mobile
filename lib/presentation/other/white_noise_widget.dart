@@ -35,9 +35,11 @@ class _WhiteNoiseState extends State<WhiteNoise> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: widget.height,
       width: widget.width,
+      clipBehavior: Clip.hardEdge,
+      decoration: const BoxDecoration(),
       child: CustomPaint(
         painter: _WhiteNoisePainter(anim: anim),
       ),

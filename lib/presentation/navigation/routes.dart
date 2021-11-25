@@ -8,7 +8,7 @@ class Routes {
   /// When loadnig local data
   static const splash = '/';
   static const home = '/home';
-  static const room = '/room';
+  static const channel = '/channel';
 
   static Route<dynamic> routeGenerator(RouteSettings settings) {
     try {
@@ -26,7 +26,7 @@ class Routes {
         case Routes.home:
           child = const HomeScreen();
           break;
-        case Routes.room:
+        case Routes.channel:
           final value = args['channelId'] as String;
           child = ChannelScreen(channelId: value);
           break;
@@ -38,7 +38,7 @@ class Routes {
       return MaterialPageRoute(builder: (context) => child);
     } on Error catch (_) {
       debugPrint(
-        "You probably forgot to specify screen constructor arguments when pushing a named route.\n"
+        "You've probably forgotten to specify screen constructor arguments when pushing a named route.\n"
         "Consider passing a map of {'argumentName': value} to the [arguments] in [pushNamed].",
       );
 

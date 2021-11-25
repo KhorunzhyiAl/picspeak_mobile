@@ -7,8 +7,8 @@ import 'package:picspeak/presentation/other/white_noise_widget.dart';
 import 'package:picspeak/presentation/screens/boradcast/broadcast_screen.dart';
 import 'package:provider/provider.dart';
 
-class Broadcast extends StatelessWidget {
-  const Broadcast({Key? key, required this.channelModel}) : super(key: key);
+class BroadcastWidget extends StatelessWidget {
+  const BroadcastWidget({Key? key, required this.channelModel}) : super(key: key);
 
   final ChannelModel channelModel;
 
@@ -25,8 +25,9 @@ class Broadcast extends StatelessWidget {
               height: 150,
               child: Card(
                 color: theme.colorScheme.surface,
-                clipBehavior: Clip.hardEdge,
                 elevation: 0,
+                clipBehavior: Clip.hardEdge,
+                margin: const EdgeInsets.all(0),
                 child: Stack(
                   fit: StackFit.expand,
                   children: [
