@@ -3,11 +3,12 @@ import 'package:picspeak/features/channel_list/domain/interactors.dart';
 import 'package:picspeak/features/channel_list/presentation/cubit/channel_list_state.dart';
 
 class ChannelListCubit extends Cubit<ChannelListState> {
-  /// The initial state is the cached channel list.
   ChannelListCubit({
     required GetChannellListInteractor getChannelList,
   })  : _getChannelListInteractor = getChannelList,
-        super(const ChannelListState.initial());
+        super(const ChannelListState.initial()) {
+    refresh();
+  }
 
   final GetChannellListInteractor _getChannelListInteractor;
 

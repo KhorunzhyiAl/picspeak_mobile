@@ -24,7 +24,6 @@ class AppLoadingListener extends StatelessWidget {
       ),
       child: BlocListener<AppLoadingCubit, LoadAppState>(
         listener: (context, state) {
-          debugPrint('========== got new state: $state =======');
           state.maybeMap(
             localDataLoaded: (_) {
               WidgetsBinding.instance?.addPostFrameCallback((_) {

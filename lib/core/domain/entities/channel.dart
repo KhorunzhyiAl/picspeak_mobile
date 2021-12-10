@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:picspeak/core/domain/entities/event.dart';
 
 part 'channel.freezed.dart';
 
@@ -8,6 +9,7 @@ class Channel with _$Channel {
     required String id,
     required String imageUrl,
     required String name,
-    required DateTime nextEvent,
+    required DateTime nextEventDate,
+    required List<Event> events,
   }) = _Channel;
 }

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:picspeak/core/domain/entities/channel.dart';
-import 'package:picspeak/features/channel_view/domain/repositories.dart';
+import 'package:picspeak/core/domain/repositories.dart/channels_repository.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
 
 class RefreshChannelInteractor {
