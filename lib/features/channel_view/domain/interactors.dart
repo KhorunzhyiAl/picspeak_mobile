@@ -1,7 +1,7 @@
-import 'package:picspeak/core/domain/entities/entities.dart';
-import 'package:picspeak/core/domain/repositories.dart';
+import 'package:dartz/dartz.dart';
+import 'package:picspeak/core/domain/entities/channel.dart';
+import 'package:picspeak/features/channel_view/domain/repositories.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
-import 'package:picspeak/core/utils/result/result.dart';
 
 class RefreshChannelInteractor {
   RefreshChannelInteractor({
@@ -11,8 +11,7 @@ class RefreshChannelInteractor {
   final ChannelsRepository _repository;
 
   Stream<LoadingState<Channel>> call(String channelId) async* {
-    // return await _repository.loadChannel(channelId);
-    yield LoadingState.loading(cached: _repository.getCachedChannel(channelId));
+    yield const LoadingState.loading(cached: None());
     final channelResult = await _repository.loadChannel(channelId);
     yield channelResult.map(
       ok: (a) => LoadingState.ready(a.value),

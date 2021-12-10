@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:picspeak/core/domain/entities/entities.dart';
-import 'package:picspeak/core/domain/repositories.dart';
+import 'package:picspeak/features/channel_view/domain/repositories.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
+import 'package:picspeak/core/domain/entities/channel.dart';
 
 class GetChannellListInteractor {
   GetChannellListInteractor({
