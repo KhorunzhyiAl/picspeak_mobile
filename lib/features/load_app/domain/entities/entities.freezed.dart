@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'app_loading_cubit.dart';
+part of 'entities.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,8 +14,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$AppLoadingStateTearOff {
-  const _$AppLoadingStateTearOff();
+class _$LoadAppStateTearOff {
+  const _$LoadAppStateTearOff();
 
   _Initial initial() {
     return const _Initial();
@@ -29,22 +29,24 @@ class _$AppLoadingStateTearOff {
     return const _Authenticated();
   }
 
-  _Unauthenticated unauthenticated() {
-    return const _Unauthenticated();
+  _Unauthenticated unauthenticated(Failure failure) {
+    return _Unauthenticated(
+      failure,
+    );
   }
 }
 
 /// @nodoc
-const $AppLoadingState = _$AppLoadingStateTearOff();
+const $LoadAppState = _$LoadAppStateTearOff();
 
 /// @nodoc
-mixin _$AppLoadingState {
+mixin _$LoadAppState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() localDataLoaded,
     required TResult Function() authenticated,
-    required TResult Function() unauthenticated,
+    required TResult Function(Failure failure) unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,7 +54,7 @@ mixin _$AppLoadingState {
     TResult Function()? initial,
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
-    TResult Function()? unauthenticated,
+    TResult Function(Failure failure)? unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,7 +62,7 @@ mixin _$AppLoadingState {
     TResult Function()? initial,
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
-    TResult Function()? unauthenticated,
+    TResult Function(Failure failure)? unauthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -92,20 +94,19 @@ mixin _$AppLoadingState {
 }
 
 /// @nodoc
-abstract class $AppLoadingStateCopyWith<$Res> {
-  factory $AppLoadingStateCopyWith(
-          AppLoadingState value, $Res Function(AppLoadingState) then) =
-      _$AppLoadingStateCopyWithImpl<$Res>;
+abstract class $LoadAppStateCopyWith<$Res> {
+  factory $LoadAppStateCopyWith(
+          LoadAppState value, $Res Function(LoadAppState) then) =
+      _$LoadAppStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AppLoadingStateCopyWithImpl<$Res>
-    implements $AppLoadingStateCopyWith<$Res> {
-  _$AppLoadingStateCopyWithImpl(this._value, this._then);
+class _$LoadAppStateCopyWithImpl<$Res> implements $LoadAppStateCopyWith<$Res> {
+  _$LoadAppStateCopyWithImpl(this._value, this._then);
 
-  final AppLoadingState _value;
+  final LoadAppState _value;
   // ignore: unused_field
-  final $Res Function(AppLoadingState) _then;
+  final $Res Function(LoadAppState) _then;
 }
 
 /// @nodoc
@@ -115,7 +116,7 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$AppLoadingStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$LoadAppStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -131,7 +132,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'AppLoadingState.initial()';
+    return 'LoadAppState.initial()';
   }
 
   @override
@@ -149,7 +150,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() localDataLoaded,
     required TResult Function() authenticated,
-    required TResult Function() unauthenticated,
+    required TResult Function(Failure failure) unauthenticated,
   }) {
     return initial();
   }
@@ -160,7 +161,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
-    TResult Function()? unauthenticated,
+    TResult Function(Failure failure)? unauthenticated,
   }) {
     return initial?.call();
   }
@@ -171,7 +172,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
-    TResult Function()? unauthenticated,
+    TResult Function(Failure failure)? unauthenticated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -218,7 +219,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements AppLoadingState {
+abstract class _Initial implements LoadAppState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -231,7 +232,7 @@ abstract class _$LocalDataLoadedCopyWith<$Res> {
 
 /// @nodoc
 class __$LocalDataLoadedCopyWithImpl<$Res>
-    extends _$AppLoadingStateCopyWithImpl<$Res>
+    extends _$LoadAppStateCopyWithImpl<$Res>
     implements _$LocalDataLoadedCopyWith<$Res> {
   __$LocalDataLoadedCopyWithImpl(
       _LocalDataLoaded _value, $Res Function(_LocalDataLoaded) _then)
@@ -248,7 +249,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
 
   @override
   String toString() {
-    return 'AppLoadingState.localDataLoaded()';
+    return 'LoadAppState.localDataLoaded()';
   }
 
   @override
@@ -266,7 +267,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
     required TResult Function() initial,
     required TResult Function() localDataLoaded,
     required TResult Function() authenticated,
-    required TResult Function() unauthenticated,
+    required TResult Function(Failure failure) unauthenticated,
   }) {
     return localDataLoaded();
   }
@@ -277,7 +278,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
     TResult Function()? initial,
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
-    TResult Function()? unauthenticated,
+    TResult Function(Failure failure)? unauthenticated,
   }) {
     return localDataLoaded?.call();
   }
@@ -288,7 +289,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
     TResult Function()? initial,
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
-    TResult Function()? unauthenticated,
+    TResult Function(Failure failure)? unauthenticated,
     required TResult orElse(),
   }) {
     if (localDataLoaded != null) {
@@ -335,7 +336,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
   }
 }
 
-abstract class _LocalDataLoaded implements AppLoadingState {
+abstract class _LocalDataLoaded implements LoadAppState {
   const factory _LocalDataLoaded() = _$_LocalDataLoaded;
 }
 
@@ -348,7 +349,7 @@ abstract class _$AuthenticatedCopyWith<$Res> {
 
 /// @nodoc
 class __$AuthenticatedCopyWithImpl<$Res>
-    extends _$AppLoadingStateCopyWithImpl<$Res>
+    extends _$LoadAppStateCopyWithImpl<$Res>
     implements _$AuthenticatedCopyWith<$Res> {
   __$AuthenticatedCopyWithImpl(
       _Authenticated _value, $Res Function(_Authenticated) _then)
@@ -365,7 +366,7 @@ class _$_Authenticated implements _Authenticated {
 
   @override
   String toString() {
-    return 'AppLoadingState.authenticated()';
+    return 'LoadAppState.authenticated()';
   }
 
   @override
@@ -383,7 +384,7 @@ class _$_Authenticated implements _Authenticated {
     required TResult Function() initial,
     required TResult Function() localDataLoaded,
     required TResult Function() authenticated,
-    required TResult Function() unauthenticated,
+    required TResult Function(Failure failure) unauthenticated,
   }) {
     return authenticated();
   }
@@ -394,7 +395,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function()? initial,
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
-    TResult Function()? unauthenticated,
+    TResult Function(Failure failure)? unauthenticated,
   }) {
     return authenticated?.call();
   }
@@ -405,7 +406,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function()? initial,
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
-    TResult Function()? unauthenticated,
+    TResult Function(Failure failure)? unauthenticated,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -452,7 +453,7 @@ class _$_Authenticated implements _Authenticated {
   }
 }
 
-abstract class _Authenticated implements AppLoadingState {
+abstract class _Authenticated implements LoadAppState {
   const factory _Authenticated() = _$_Authenticated;
 }
 
@@ -461,11 +462,12 @@ abstract class _$UnauthenticatedCopyWith<$Res> {
   factory _$UnauthenticatedCopyWith(
           _Unauthenticated value, $Res Function(_Unauthenticated) then) =
       __$UnauthenticatedCopyWithImpl<$Res>;
+  $Res call({Failure failure});
 }
 
 /// @nodoc
 class __$UnauthenticatedCopyWithImpl<$Res>
-    extends _$AppLoadingStateCopyWithImpl<$Res>
+    extends _$LoadAppStateCopyWithImpl<$Res>
     implements _$UnauthenticatedCopyWith<$Res> {
   __$UnauthenticatedCopyWithImpl(
       _Unauthenticated _value, $Res Function(_Unauthenticated) _then)
@@ -473,26 +475,48 @@ class __$UnauthenticatedCopyWithImpl<$Res>
 
   @override
   _Unauthenticated get _value => super._value as _Unauthenticated;
+
+  @override
+  $Res call({
+    Object? failure = freezed,
+  }) {
+    return _then(_Unauthenticated(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Unauthenticated implements _Unauthenticated {
-  const _$_Unauthenticated();
+  const _$_Unauthenticated(this.failure);
+
+  @override
+  final Failure failure;
 
   @override
   String toString() {
-    return 'AppLoadingState.unauthenticated()';
+    return 'LoadAppState.unauthenticated(failure: $failure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Unauthenticated);
+        (other.runtimeType == runtimeType &&
+            other is _Unauthenticated &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, failure);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UnauthenticatedCopyWith<_Unauthenticated> get copyWith =>
+      __$UnauthenticatedCopyWithImpl<_Unauthenticated>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -500,9 +524,9 @@ class _$_Unauthenticated implements _Unauthenticated {
     required TResult Function() initial,
     required TResult Function() localDataLoaded,
     required TResult Function() authenticated,
-    required TResult Function() unauthenticated,
+    required TResult Function(Failure failure) unauthenticated,
   }) {
-    return unauthenticated();
+    return unauthenticated(failure);
   }
 
   @override
@@ -511,9 +535,9 @@ class _$_Unauthenticated implements _Unauthenticated {
     TResult Function()? initial,
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
-    TResult Function()? unauthenticated,
+    TResult Function(Failure failure)? unauthenticated,
   }) {
-    return unauthenticated?.call();
+    return unauthenticated?.call(failure);
   }
 
   @override
@@ -522,11 +546,11 @@ class _$_Unauthenticated implements _Unauthenticated {
     TResult Function()? initial,
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
-    TResult Function()? unauthenticated,
+    TResult Function(Failure failure)? unauthenticated,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
-      return unauthenticated();
+      return unauthenticated(failure);
     }
     return orElse();
   }
@@ -569,6 +593,11 @@ class _$_Unauthenticated implements _Unauthenticated {
   }
 }
 
-abstract class _Unauthenticated implements AppLoadingState {
-  const factory _Unauthenticated() = _$_Unauthenticated;
+abstract class _Unauthenticated implements LoadAppState {
+  const factory _Unauthenticated(Failure failure) = _$_Unauthenticated;
+
+  Failure get failure;
+  @JsonKey(ignore: true)
+  _$UnauthenticatedCopyWith<_Unauthenticated> get copyWith =>
+      throw _privateConstructorUsedError;
 }
