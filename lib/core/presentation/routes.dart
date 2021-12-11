@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:picspeak/core/domain/repositories.dart/channels_repository.dart';
+import 'package:picspeak/core/presentation/locator.dart';
 import 'package:picspeak/core/presentation/splash_screen.dart';
+import 'package:picspeak/features/channel_list/domain/interactors.dart';
+import 'package:picspeak/features/channel_list/presentation/cubit/channel_list_cubit.dart';
 import 'package:picspeak/features/channel_view/presentation/channel_screen.dart';
-import 'package:picspeak/features/channel_list/presentation/home_screen.dart';
+import 'package:picspeak/features/channel_list/presentation/channel_list_screen.dart';
 
 class Routes {
   static const splash = '/';
@@ -19,7 +23,12 @@ class Routes {
           child = const SplashScreen();
           break;
         case Routes.home:
-          child = const HomeScreen();
+          child = BlocProvider(
+            create: (context) => ChannelListCubit(
+              getChannelList: locator.get<GetChannellListInteractor>(),
+            ),
+            child: const ChannelListScreen(),
+          );
           break;
 
         case Routes.channel:

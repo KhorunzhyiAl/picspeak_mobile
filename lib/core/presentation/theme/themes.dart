@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class MyThemes {
   static final light = ThemeData(
     colorScheme: ColorScheme(
-      primary: const Color.fromARGB(255, 120, 150, 210),
-      primaryVariant: const Color.fromARGB(255, 120, 150, 210),
-      secondary: const Color.fromARGB(255, 103, 137, 131),
-      secondaryVariant: const Color.fromARGB(255, 194, 203, 237), // rgb(103, 137, 131)
-      surface: Colors.white,
-      background: Colors.grey.shade100,
+      primary: const Color.fromARGB(255, 58, 149, 255),
+      primaryVariant: const Color.fromARGB(255, 68, 180, 255),
+      secondary: const Color.fromARGB(255, 243, 243, 243),
+      secondaryVariant: const Color.fromARGB(255, 223, 223, 223), // rgb(103, 137, 131)
+      surface: const Color.fromARGB(255, 243, 243, 243),
+      background: Colors.white,
       error: Colors.transparent,
       onPrimary: Colors.white,
       onSecondary: Colors.black,
@@ -18,13 +18,46 @@ class MyThemes {
       brightness: Brightness.light,
     ),
     textTheme: const TextTheme(
-        headline4: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.normal,
-        ),
-        bodyText1: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w300,
-        )),
+      headline1: TextStyle(
+        fontFamily: 'Farro',
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+      ),
+      headline2: TextStyle(
+        fontFamily: 'Farro',
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+      ),
+      headline3: TextStyle(
+        fontFamily: 'Farro',
+        fontSize: 22,
+        fontWeight: FontWeight.bold,
+      ),
+      headline4: TextStyle(
+        fontFamily: 'Farro',
+        fontSize: 20,
+        fontWeight: FontWeight.w500,
+      ),
+      headline5: TextStyle(
+        fontFamily: 'Farro',
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
+      ),
+      headline6: TextStyle(
+        fontFamily: 'Farro',
+        fontSize: 18,
+        fontWeight: FontWeight.w300,
+      ),
+      caption: TextStyle(
+        fontFamily: 'RobotoMono',
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+      ),
+      subtitle2: TextStyle(
+        fontFamily: 'Farro',
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+      ),
+    ),
   );
 }

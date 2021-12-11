@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 
 class AnimatedTextSwitch extends StatefulWidget {
   final String text;
+  final TextStyle? style;
 
-  const AnimatedTextSwitch({required this.text, Key? key}) : super(key: key);
+  const AnimatedTextSwitch({Key? key, required this.text, required this.style}) : super(key: key);
 
   @override
   _AnimatedTextSwitchState createState() => _AnimatedTextSwitchState();
@@ -157,10 +158,7 @@ class _AnimatedTextSwitchState extends State<AnimatedTextSwitch>
                         color: Colors.transparent,
                         child: Text(
                           oldTextTemp,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style: widget.style,
                         ),
                       ),
                     ),

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:picspeak/features/channel_view/domain/repositories.dart';
+import 'package:picspeak/core/domain/repositories.dart/channels_repository.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
 import 'package:picspeak/core/domain/entities/channel.dart';
 
@@ -14,10 +14,11 @@ class GetChannellListInteractor {
     final cachedList = _repository.getChannelList();
     yield LoadingState.loading(cached: Some(cachedList));
 
-    final refreshResult = await _repository.refesh();
-    refreshResult.map(
-      ok: (_) => LoadingState.ready(_repository.getChannelList()),
-      failure: (a) => LoadingState.failed(a.failure),
-    );
+    final failure = await _repository.refesh();
+    if (failure != null) {
+      LoadingState.failed(failure);
+    } else {
+      yield LoadingState.ready(_repository.getChannelList());
+    }
   }
 }

@@ -21,12 +21,14 @@ class _$ChannelTearOff {
       {required String id,
       required String imageUrl,
       required String name,
-      required DateTime nextEvent}) {
+      required DateTime nextEventDate,
+      required List<Event> events}) {
     return _Channel(
       id: id,
       imageUrl: imageUrl,
       name: name,
-      nextEvent: nextEvent,
+      nextEventDate: nextEventDate,
+      events: events,
     );
   }
 }
@@ -39,7 +41,8 @@ mixin _$Channel {
   String get id => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  DateTime get nextEvent => throw _privateConstructorUsedError;
+  DateTime get nextEventDate => throw _privateConstructorUsedError;
+  List<Event> get events => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChannelCopyWith<Channel> get copyWith => throw _privateConstructorUsedError;
@@ -49,7 +52,12 @@ mixin _$Channel {
 abstract class $ChannelCopyWith<$Res> {
   factory $ChannelCopyWith(Channel value, $Res Function(Channel) then) =
       _$ChannelCopyWithImpl<$Res>;
-  $Res call({String id, String imageUrl, String name, DateTime nextEvent});
+  $Res call(
+      {String id,
+      String imageUrl,
+      String name,
+      DateTime nextEventDate,
+      List<Event> events});
 }
 
 /// @nodoc
@@ -65,7 +73,8 @@ class _$ChannelCopyWithImpl<$Res> implements $ChannelCopyWith<$Res> {
     Object? id = freezed,
     Object? imageUrl = freezed,
     Object? name = freezed,
-    Object? nextEvent = freezed,
+    Object? nextEventDate = freezed,
+    Object? events = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -80,10 +89,14 @@ class _$ChannelCopyWithImpl<$Res> implements $ChannelCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      nextEvent: nextEvent == freezed
-          ? _value.nextEvent
-          : nextEvent // ignore: cast_nullable_to_non_nullable
+      nextEventDate: nextEventDate == freezed
+          ? _value.nextEventDate
+          : nextEventDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      events: events == freezed
+          ? _value.events
+          : events // ignore: cast_nullable_to_non_nullable
+              as List<Event>,
     ));
   }
 }
@@ -93,7 +106,12 @@ abstract class _$ChannelCopyWith<$Res> implements $ChannelCopyWith<$Res> {
   factory _$ChannelCopyWith(_Channel value, $Res Function(_Channel) then) =
       __$ChannelCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String imageUrl, String name, DateTime nextEvent});
+  $Res call(
+      {String id,
+      String imageUrl,
+      String name,
+      DateTime nextEventDate,
+      List<Event> events});
 }
 
 /// @nodoc
@@ -110,7 +128,8 @@ class __$ChannelCopyWithImpl<$Res> extends _$ChannelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? imageUrl = freezed,
     Object? name = freezed,
-    Object? nextEvent = freezed,
+    Object? nextEventDate = freezed,
+    Object? events = freezed,
   }) {
     return _then(_Channel(
       id: id == freezed
@@ -125,10 +144,14 @@ class __$ChannelCopyWithImpl<$Res> extends _$ChannelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      nextEvent: nextEvent == freezed
-          ? _value.nextEvent
-          : nextEvent // ignore: cast_nullable_to_non_nullable
+      nextEventDate: nextEventDate == freezed
+          ? _value.nextEventDate
+          : nextEventDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      events: events == freezed
+          ? _value.events
+          : events // ignore: cast_nullable_to_non_nullable
+              as List<Event>,
     ));
   }
 }
@@ -140,7 +163,8 @@ class _$_Channel implements _Channel {
       {required this.id,
       required this.imageUrl,
       required this.name,
-      required this.nextEvent});
+      required this.nextEventDate,
+      required this.events});
 
   @override
   final String id;
@@ -149,11 +173,13 @@ class _$_Channel implements _Channel {
   @override
   final String name;
   @override
-  final DateTime nextEvent;
+  final DateTime nextEventDate;
+  @override
+  final List<Event> events;
 
   @override
   String toString() {
-    return 'Channel(id: $id, imageUrl: $imageUrl, name: $name, nextEvent: $nextEvent)';
+    return 'Channel(id: $id, imageUrl: $imageUrl, name: $name, nextEventDate: $nextEventDate, events: $events)';
   }
 
   @override
@@ -165,12 +191,14 @@ class _$_Channel implements _Channel {
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.nextEvent, nextEvent) ||
-                other.nextEvent == nextEvent));
+            (identical(other.nextEventDate, nextEventDate) ||
+                other.nextEventDate == nextEventDate) &&
+            const DeepCollectionEquality().equals(other.events, events));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, imageUrl, name, nextEvent);
+  int get hashCode => Object.hash(runtimeType, id, imageUrl, name,
+      nextEventDate, const DeepCollectionEquality().hash(events));
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +211,8 @@ abstract class _Channel implements Channel {
       {required String id,
       required String imageUrl,
       required String name,
-      required DateTime nextEvent}) = _$_Channel;
+      required DateTime nextEventDate,
+      required List<Event> events}) = _$_Channel;
 
   @override
   String get id;
@@ -192,7 +221,9 @@ abstract class _Channel implements Channel {
   @override
   String get name;
   @override
-  DateTime get nextEvent;
+  DateTime get nextEventDate;
+  @override
+  List<Event> get events;
   @override
   @JsonKey(ignore: true)
   _$ChannelCopyWith<_Channel> get copyWith =>
