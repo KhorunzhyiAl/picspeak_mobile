@@ -22,7 +22,7 @@ class AppLoadingListener extends StatelessWidget {
       value: AppLoadingCubit(
         loadApp: locator.get<LoadAppInteractor>(),
       ),
-      child: BlocListener<AppLoadingCubit, LoadAppState>(
+      child: BlocListener<AppLoadingCubit, AppState>(
         listener: (context, state) {
           state.maybeMap(
             localDataLoaded: (_) {

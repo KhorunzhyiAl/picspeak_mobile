@@ -1,12 +1,13 @@
 import 'package:bloc/bloc.dart';
+import 'package:picspeak/core/domain/entities/channel.dart';
+import 'package:picspeak/core/utils/loading_state/loading_state.dart';
 import 'package:picspeak/features/channel_list/domain/interactors.dart';
-import 'package:picspeak/features/channel_list/presentation/cubit/channel_list_state.dart';
 
-class ChannelListCubit extends Cubit<ChannelListState> {
+class ChannelListCubit extends Cubit<LoadingState<List<Channel>>> {
   ChannelListCubit({
     required GetChannellListInteractor getChannelList,
   })  : _getChannelListInteractor = getChannelList,
-        super(const ChannelListState.initial()) {
+        super(const LoadingState.loading()) {
     refresh();
   }
 
@@ -14,11 +15,7 @@ class ChannelListCubit extends Cubit<ChannelListState> {
 
   void refresh() {
     _getChannelListInteractor.execute().listen((event) {
-      event.map(
-        loading: (a) => emit(ChannelListState.loading(a.cached.getOrElse(() => []))),
-        ready: (a) => ChannelListState.ready(a.data),
-        failed: (a) => ChannelListState.failure(a.failure),
-      );
+      emit(event);
     });
   }
 }

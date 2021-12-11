@@ -34,6 +34,13 @@ class _$LoadingStateTearOff {
       failure,
     );
   }
+
+  WaitingForConnection<T> waitingForConnection<T>(
+      {Option<T> cached = const None()}) {
+    return WaitingForConnection<T>(
+      cached: cached,
+    );
+  }
 }
 
 /// @nodoc
@@ -46,6 +53,7 @@ mixin _$LoadingState<T> {
     required TResult Function(Option<T> cached) loading,
     required TResult Function(T data) ready,
     required TResult Function(Failure failure) failed,
+    required TResult Function(Option<T> cached) waitingForConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +61,7 @@ mixin _$LoadingState<T> {
     TResult Function(Option<T> cached)? loading,
     TResult Function(T data)? ready,
     TResult Function(Failure failure)? failed,
+    TResult Function(Option<T> cached)? waitingForConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +69,7 @@ mixin _$LoadingState<T> {
     TResult Function(Option<T> cached)? loading,
     TResult Function(T data)? ready,
     TResult Function(Failure failure)? failed,
+    TResult Function(Option<T> cached)? waitingForConnection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +78,8 @@ mixin _$LoadingState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Ready<T> value) ready,
     required TResult Function(Failed<T> value) failed,
+    required TResult Function(WaitingForConnection<T> value)
+        waitingForConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +87,7 @@ mixin _$LoadingState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Ready<T> value)? ready,
     TResult Function(Failed<T> value)? failed,
+    TResult Function(WaitingForConnection<T> value)? waitingForConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +95,7 @@ mixin _$LoadingState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Ready<T> value)? ready,
     TResult Function(Failed<T> value)? failed,
+    TResult Function(WaitingForConnection<T> value)? waitingForConnection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,6 +183,7 @@ class _$Loading<T> implements Loading<T> {
     required TResult Function(Option<T> cached) loading,
     required TResult Function(T data) ready,
     required TResult Function(Failure failure) failed,
+    required TResult Function(Option<T> cached) waitingForConnection,
   }) {
     return loading(cached);
   }
@@ -179,6 +194,7 @@ class _$Loading<T> implements Loading<T> {
     TResult Function(Option<T> cached)? loading,
     TResult Function(T data)? ready,
     TResult Function(Failure failure)? failed,
+    TResult Function(Option<T> cached)? waitingForConnection,
   }) {
     return loading?.call(cached);
   }
@@ -189,6 +205,7 @@ class _$Loading<T> implements Loading<T> {
     TResult Function(Option<T> cached)? loading,
     TResult Function(T data)? ready,
     TResult Function(Failure failure)? failed,
+    TResult Function(Option<T> cached)? waitingForConnection,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -203,6 +220,8 @@ class _$Loading<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Ready<T> value) ready,
     required TResult Function(Failed<T> value) failed,
+    required TResult Function(WaitingForConnection<T> value)
+        waitingForConnection,
   }) {
     return loading(this);
   }
@@ -213,6 +232,7 @@ class _$Loading<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Ready<T> value)? ready,
     TResult Function(Failed<T> value)? failed,
+    TResult Function(WaitingForConnection<T> value)? waitingForConnection,
   }) {
     return loading?.call(this);
   }
@@ -223,6 +243,7 @@ class _$Loading<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Ready<T> value)? ready,
     TResult Function(Failed<T> value)? failed,
+    TResult Function(WaitingForConnection<T> value)? waitingForConnection,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -306,6 +327,7 @@ class _$Ready<T> implements Ready<T> {
     required TResult Function(Option<T> cached) loading,
     required TResult Function(T data) ready,
     required TResult Function(Failure failure) failed,
+    required TResult Function(Option<T> cached) waitingForConnection,
   }) {
     return ready(data);
   }
@@ -316,6 +338,7 @@ class _$Ready<T> implements Ready<T> {
     TResult Function(Option<T> cached)? loading,
     TResult Function(T data)? ready,
     TResult Function(Failure failure)? failed,
+    TResult Function(Option<T> cached)? waitingForConnection,
   }) {
     return ready?.call(data);
   }
@@ -326,6 +349,7 @@ class _$Ready<T> implements Ready<T> {
     TResult Function(Option<T> cached)? loading,
     TResult Function(T data)? ready,
     TResult Function(Failure failure)? failed,
+    TResult Function(Option<T> cached)? waitingForConnection,
     required TResult orElse(),
   }) {
     if (ready != null) {
@@ -340,6 +364,8 @@ class _$Ready<T> implements Ready<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Ready<T> value) ready,
     required TResult Function(Failed<T> value) failed,
+    required TResult Function(WaitingForConnection<T> value)
+        waitingForConnection,
   }) {
     return ready(this);
   }
@@ -350,6 +376,7 @@ class _$Ready<T> implements Ready<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Ready<T> value)? ready,
     TResult Function(Failed<T> value)? failed,
+    TResult Function(WaitingForConnection<T> value)? waitingForConnection,
   }) {
     return ready?.call(this);
   }
@@ -360,6 +387,7 @@ class _$Ready<T> implements Ready<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Ready<T> value)? ready,
     TResult Function(Failed<T> value)? failed,
+    TResult Function(WaitingForConnection<T> value)? waitingForConnection,
     required TResult orElse(),
   }) {
     if (ready != null) {
@@ -443,6 +471,7 @@ class _$Failed<T> implements Failed<T> {
     required TResult Function(Option<T> cached) loading,
     required TResult Function(T data) ready,
     required TResult Function(Failure failure) failed,
+    required TResult Function(Option<T> cached) waitingForConnection,
   }) {
     return failed(failure);
   }
@@ -453,6 +482,7 @@ class _$Failed<T> implements Failed<T> {
     TResult Function(Option<T> cached)? loading,
     TResult Function(T data)? ready,
     TResult Function(Failure failure)? failed,
+    TResult Function(Option<T> cached)? waitingForConnection,
   }) {
     return failed?.call(failure);
   }
@@ -463,6 +493,7 @@ class _$Failed<T> implements Failed<T> {
     TResult Function(Option<T> cached)? loading,
     TResult Function(T data)? ready,
     TResult Function(Failure failure)? failed,
+    TResult Function(Option<T> cached)? waitingForConnection,
     required TResult orElse(),
   }) {
     if (failed != null) {
@@ -477,6 +508,8 @@ class _$Failed<T> implements Failed<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Ready<T> value) ready,
     required TResult Function(Failed<T> value) failed,
+    required TResult Function(WaitingForConnection<T> value)
+        waitingForConnection,
   }) {
     return failed(this);
   }
@@ -487,6 +520,7 @@ class _$Failed<T> implements Failed<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Ready<T> value)? ready,
     TResult Function(Failed<T> value)? failed,
+    TResult Function(WaitingForConnection<T> value)? waitingForConnection,
   }) {
     return failed?.call(this);
   }
@@ -497,6 +531,7 @@ class _$Failed<T> implements Failed<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Ready<T> value)? ready,
     TResult Function(Failed<T> value)? failed,
+    TResult Function(WaitingForConnection<T> value)? waitingForConnection,
     required TResult orElse(),
   }) {
     if (failed != null) {
@@ -512,5 +547,154 @@ abstract class Failed<T> implements LoadingState<T> {
   Failure get failure;
   @JsonKey(ignore: true)
   $FailedCopyWith<T, Failed<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $WaitingForConnectionCopyWith<T, $Res> {
+  factory $WaitingForConnectionCopyWith(WaitingForConnection<T> value,
+          $Res Function(WaitingForConnection<T>) then) =
+      _$WaitingForConnectionCopyWithImpl<T, $Res>;
+  $Res call({Option<T> cached});
+}
+
+/// @nodoc
+class _$WaitingForConnectionCopyWithImpl<T, $Res>
+    extends _$LoadingStateCopyWithImpl<T, $Res>
+    implements $WaitingForConnectionCopyWith<T, $Res> {
+  _$WaitingForConnectionCopyWithImpl(WaitingForConnection<T> _value,
+      $Res Function(WaitingForConnection<T>) _then)
+      : super(_value, (v) => _then(v as WaitingForConnection<T>));
+
+  @override
+  WaitingForConnection<T> get _value => super._value as WaitingForConnection<T>;
+
+  @override
+  $Res call({
+    Object? cached = freezed,
+  }) {
+    return _then(WaitingForConnection<T>(
+      cached: cached == freezed
+          ? _value.cached
+          : cached // ignore: cast_nullable_to_non_nullable
+              as Option<T>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$WaitingForConnection<T> implements WaitingForConnection<T> {
+  const _$WaitingForConnection({this.cached = const None()});
+
+  @JsonKey(defaultValue: const None())
+  @override
+  final Option<T> cached;
+
+  @override
+  String toString() {
+    return 'LoadingState<$T>.waitingForConnection(cached: $cached)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WaitingForConnection<T> &&
+            (identical(other.cached, cached) || other.cached == cached));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, cached);
+
+  @JsonKey(ignore: true)
+  @override
+  $WaitingForConnectionCopyWith<T, WaitingForConnection<T>> get copyWith =>
+      _$WaitingForConnectionCopyWithImpl<T, WaitingForConnection<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<T> cached) loading,
+    required TResult Function(T data) ready,
+    required TResult Function(Failure failure) failed,
+    required TResult Function(Option<T> cached) waitingForConnection,
+  }) {
+    return waitingForConnection(cached);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<T> cached)? loading,
+    TResult Function(T data)? ready,
+    TResult Function(Failure failure)? failed,
+    TResult Function(Option<T> cached)? waitingForConnection,
+  }) {
+    return waitingForConnection?.call(cached);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<T> cached)? loading,
+    TResult Function(T data)? ready,
+    TResult Function(Failure failure)? failed,
+    TResult Function(Option<T> cached)? waitingForConnection,
+    required TResult orElse(),
+  }) {
+    if (waitingForConnection != null) {
+      return waitingForConnection(cached);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Ready<T> value) ready,
+    required TResult Function(Failed<T> value) failed,
+    required TResult Function(WaitingForConnection<T> value)
+        waitingForConnection,
+  }) {
+    return waitingForConnection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Ready<T> value)? ready,
+    TResult Function(Failed<T> value)? failed,
+    TResult Function(WaitingForConnection<T> value)? waitingForConnection,
+  }) {
+    return waitingForConnection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Ready<T> value)? ready,
+    TResult Function(Failed<T> value)? failed,
+    TResult Function(WaitingForConnection<T> value)? waitingForConnection,
+    required TResult orElse(),
+  }) {
+    if (waitingForConnection != null) {
+      return waitingForConnection(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WaitingForConnection<T> implements LoadingState<T> {
+  const factory WaitingForConnection({Option<T> cached}) =
+      _$WaitingForConnection<T>;
+
+  Option<T> get cached;
+  @JsonKey(ignore: true)
+  $WaitingForConnectionCopyWith<T, WaitingForConnection<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
