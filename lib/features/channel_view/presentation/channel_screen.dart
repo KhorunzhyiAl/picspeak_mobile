@@ -51,7 +51,7 @@ class _ChannelScreenState extends State<ChannelScreen> with TickerProviderStateM
                     labelColor: theme.colorScheme.onBackground,
                     unselectedLabelColor: theme.colorScheme.onBackground.withOpacity(0.5),
                     labelStyle: theme.textTheme.headline5,
-                    tabs: const [ 
+                    tabs: const [
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
                         child: Tab(

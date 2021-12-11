@@ -15,7 +15,7 @@ class GetChannellListInteractor {
   final ChannelsRepository _channelsRepository;
   final LoadDataInteractor<List<Channel>> _loadDataInteractor;
   Stream<LoadingState<List<Channel>>> call() async* {
-    final cachedList = _channelsRepository.getCachedChannelList();
+    final cachedList = await _channelsRepository.getCachedChannelList();
     yield LoadingState.loading(cached: Some(cachedList));
     yield* _loadDataInteractor(
       loadData: _channelsRepository.loadChannelList,

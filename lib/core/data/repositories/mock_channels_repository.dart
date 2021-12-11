@@ -1,11 +1,22 @@
+import 'package:picspeak/core/data/repositories/cacheable.dart';
 import 'package:picspeak/core/domain/entities/channel.dart';
 import 'package:picspeak/core/domain/entities/event.dart';
 import 'package:picspeak/core/domain/repositories/channels_repository.dart';
 import 'package:picspeak/core/utils/result/result.dart';
 
-class MockChannelsRepository implements ChannelsRepository {
+class MockChannelsRepository with Cacheable implements ChannelsRepository {
   @override
-  List<Channel> getCachedChannelList() {
+  Future<void> cache() async {
+    await Future.delayed(const Duration(seconds: 1));
+  }
+
+  @override
+  Future<void> uncache() async {
+    await Future.delayed(const Duration(seconds: 1));
+  }
+
+  @override
+  Future<List<Channel>> getCachedChannelList() async {
     return [
       for (int i = 0; i < 15; ++i)
         Channel(
@@ -31,7 +42,7 @@ class MockChannelsRepository implements ChannelsRepository {
   @override
   Future<Result<List<Channel>>> loadChannelList() async {
     await Future.delayed(const Duration(seconds: 2));
-    return Result.ok(getCachedChannelList());
+    return Result.ok(await getCachedChannelList());
   }
 
   @override
@@ -84,5 +95,10 @@ class MockChannelsRepository implements ChannelsRepository {
         ],
       ),
     );
+  }
+
+  @override
+  Future<Result<Channel>> getCachedChannel(String id) async {
+    return await loadChannel(id);
   }
 }

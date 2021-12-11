@@ -24,13 +24,14 @@ class ChannelScheduleWidget extends StatelessWidget {
           waitingForConnection: (a) => a.cached.fold(
             () => _build(context),
             (a) => _build(context, a),
+
           ),
         );
       },
     );
   }
-
   Widget _build(BuildContext context, [Channel? channel]) {
+
     final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
