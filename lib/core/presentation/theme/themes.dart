@@ -20,32 +20,32 @@ class MyThemes {
     textTheme: const TextTheme(
       headline1: TextStyle(
         fontFamily: 'Farro',
-        fontSize: 32,
+        fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
       headline2: TextStyle(
         fontFamily: 'Farro',
-        fontSize: 24,
+        fontSize: 22,
         fontWeight: FontWeight.bold,
       ),
       headline3: TextStyle(
         fontFamily: 'Farro',
-        fontSize: 22,
+        fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
       headline4: TextStyle(
         fontFamily: 'Farro',
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: FontWeight.w500,
       ),
       headline5: TextStyle(
         fontFamily: 'Farro',
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: FontWeight.w400,
       ),
       headline6: TextStyle(
         fontFamily: 'Farro',
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: FontWeight.w300,
       ),
       caption: TextStyle(

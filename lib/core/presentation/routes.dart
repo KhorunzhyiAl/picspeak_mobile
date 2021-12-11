@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:picspeak/core/domain/repositories.dart/channels_repository.dart';
 import 'package:picspeak/core/presentation/locator.dart';
 import 'package:picspeak/core/presentation/splash_screen.dart';
-import 'package:picspeak/features/channel_list/domain/interactors.dart';
+import 'package:picspeak/features/channel_list/domain/get_channel_list_interactor.dart';
 import 'package:picspeak/features/channel_list/presentation/cubit/channel_list_cubit.dart';
 import 'package:picspeak/features/channel_view/presentation/channel_screen.dart';
 import 'package:picspeak/features/channel_list/presentation/channel_list_screen.dart';
+import 'package:picspeak/features/channel_view/presentation/cubit/channel_cubit.dart';
 
 class Routes {
   static const splash = '/';
@@ -35,7 +35,14 @@ class Routes {
           final args = _argsAsMap(settings.arguments);
           final value = args['channelId'] as String;
           child = MultiBlocProvider(
-            providers: const [],
+            providers: [
+              BlocProvider(
+                create: (context) => ChannelCubit(
+                  locator.get(),
+                  channelId: value,
+                ),
+              )
+            ],
             child: ChannelScreen(channelId: value),
           );
           break;
@@ -44,7 +51,7 @@ class Routes {
           throw IncorrectRouteNameError(settings.name);
       }
 
-      return MaterialPageRoute(builder: (context) => child);
+      return CupertinoPageRoute(builder: (context) => child);
     } on IncorrectRouteNameError catch (e) {
       rethrow;
     } on NoRouteArgumentsSpecifiedError catch (_) {

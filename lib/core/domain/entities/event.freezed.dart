@@ -20,10 +20,12 @@ class _$EventTearOff {
   _Event call(
       {required String name,
       required DateTime start,
+      required Duration duration,
       required List<Talk> talks}) {
     return _Event(
       name: name,
       start: start,
+      duration: duration,
       talks: talks,
     );
   }
@@ -36,6 +38,7 @@ const $Event = _$EventTearOff();
 mixin _$Event {
   String get name => throw _privateConstructorUsedError;
   DateTime get start => throw _privateConstructorUsedError;
+  Duration get duration => throw _privateConstructorUsedError;
   List<Talk> get talks => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -46,7 +49,7 @@ mixin _$Event {
 abstract class $EventCopyWith<$Res> {
   factory $EventCopyWith(Event value, $Res Function(Event) then) =
       _$EventCopyWithImpl<$Res>;
-  $Res call({String name, DateTime start, List<Talk> talks});
+  $Res call({String name, DateTime start, Duration duration, List<Talk> talks});
 }
 
 /// @nodoc
@@ -61,6 +64,7 @@ class _$EventCopyWithImpl<$Res> implements $EventCopyWith<$Res> {
   $Res call({
     Object? name = freezed,
     Object? start = freezed,
+    Object? duration = freezed,
     Object? talks = freezed,
   }) {
     return _then(_value.copyWith(
@@ -72,6 +76,10 @@ class _$EventCopyWithImpl<$Res> implements $EventCopyWith<$Res> {
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      duration: duration == freezed
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as Duration,
       talks: talks == freezed
           ? _value.talks
           : talks // ignore: cast_nullable_to_non_nullable
@@ -85,7 +93,7 @@ abstract class _$EventCopyWith<$Res> implements $EventCopyWith<$Res> {
   factory _$EventCopyWith(_Event value, $Res Function(_Event) then) =
       __$EventCopyWithImpl<$Res>;
   @override
-  $Res call({String name, DateTime start, List<Talk> talks});
+  $Res call({String name, DateTime start, Duration duration, List<Talk> talks});
 }
 
 /// @nodoc
@@ -101,6 +109,7 @@ class __$EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? start = freezed,
+    Object? duration = freezed,
     Object? talks = freezed,
   }) {
     return _then(_Event(
@@ -112,6 +121,10 @@ class __$EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res>
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      duration: duration == freezed
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as Duration,
       talks: talks == freezed
           ? _value.talks
           : talks // ignore: cast_nullable_to_non_nullable
@@ -124,18 +137,23 @@ class __$EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res>
 
 class _$_Event implements _Event {
   const _$_Event(
-      {required this.name, required this.start, required this.talks});
+      {required this.name,
+      required this.start,
+      required this.duration,
+      required this.talks});
 
   @override
   final String name;
   @override
   final DateTime start;
   @override
+  final Duration duration;
+  @override
   final List<Talk> talks;
 
   @override
   String toString() {
-    return 'Event(name: $name, start: $start, talks: $talks)';
+    return 'Event(name: $name, start: $start, duration: $duration, talks: $talks)';
   }
 
   @override
@@ -145,12 +163,14 @@ class _$_Event implements _Event {
             other is _Event &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.start, start) || other.start == start) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration) &&
             const DeepCollectionEquality().equals(other.talks, talks));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, name, start, const DeepCollectionEquality().hash(talks));
+  int get hashCode => Object.hash(runtimeType, name, start, duration,
+      const DeepCollectionEquality().hash(talks));
 
   @JsonKey(ignore: true)
   @override
@@ -162,12 +182,15 @@ abstract class _Event implements Event {
   const factory _Event(
       {required String name,
       required DateTime start,
+      required Duration duration,
       required List<Talk> talks}) = _$_Event;
 
   @override
   String get name;
   @override
   DateTime get start;
+  @override
+  Duration get duration;
   @override
   List<Talk> get talks;
   @override

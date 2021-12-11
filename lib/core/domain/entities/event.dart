@@ -7,6 +7,7 @@ class Event with _$Event {
   const factory Event({
     required String name,
     required DateTime start,
+    required Duration duration,
     required List<Talk> talks,
   }) = _Event;
 }

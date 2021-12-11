@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:picspeak/core/domain/entities/channel.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
-import 'package:picspeak/features/channel_list/domain/interactors.dart';
+import 'package:picspeak/features/channel_list/domain/get_channel_list_interactor.dart';
 
 class ChannelListCubit extends Cubit<LoadingState<List<Channel>>> {
   ChannelListCubit({
@@ -12,9 +14,13 @@ class ChannelListCubit extends Cubit<LoadingState<List<Channel>>> {
   }
 
   final GetChannellListInteractor _getChannelListInteractor;
+  StreamSubscription? _streamSubscription;
 
   void refresh() {
-    _getChannelListInteractor.execute().listen((event) {
+    if (_streamSubscription != null) {
+      _streamSubscription!.cancel();
+    }
+    _streamSubscription = _getChannelListInteractor().listen((event) {
       emit(event);
     });
   }
