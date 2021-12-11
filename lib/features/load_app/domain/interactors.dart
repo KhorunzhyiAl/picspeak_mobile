@@ -6,15 +6,15 @@ class LoadAppInteractor {
 
   final AppRepository _repository;
 
-  Stream<LoadAppState> execute() async* {
+  Stream<AppState> execute() async* {
     await _repository.loadLocalData();
-    yield const LoadAppState.localDataLoaded();
+    yield const AppState.localDataLoaded();
 
     final failure = await _repository.authenticate();
     if (failure != null) {
-      yield LoadAppState.unauthenticated(failure);
+      yield AppState.unauthenticated(failure);
     } else {
-      yield const LoadAppState.authenticated();
+      yield const AppState.authenticated();
     }
   }
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:picspeak/core/domain/entities/channel.dart';
+import 'package:picspeak/core/utils/loading_state/loading_state.dart';
 import 'package:picspeak/features/channel_list/presentation/cubit/channel_list_cubit.dart';
-import 'package:picspeak/features/channel_list/presentation/cubit/channel_list_state.dart';
 import 'package:picspeak/features/channel_list/presentation/widgets/animated_text_switch.dart';
 import 'package:picspeak/features/channel_list/presentation/widgets/channel_entry_widget.dart';
 import 'package:picspeak/features/load_app/presentation/blocs/app_state_cubit.dart';
@@ -29,13 +30,14 @@ class ChannelListScreen extends StatelessWidget {
               icon: const Icon(Icons.menu),
               onPressed: () {},
             ),
-            title: BlocBuilder<AppLoadingCubit, LoadAppState>(
+            title: BlocBuilder<AppLoadingCubit, AppState>(
               builder: (context, state) {
                 final text = state.map(
                   initial: (a) => 'Loading...',
                   localDataLoaded: (a) => 'Connecting...',
                   authenticated: (a) => 'Picspeak',
                   unauthenticated: (a) => 'Picspeak (guest)',
+                  offline: (a) => 'Waiting for connection...',
                 );
                 return AnimatedTextSwitch(
                   text: text,
@@ -48,13 +50,19 @@ class ChannelListScreen extends StatelessWidget {
           ),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            sliver: BlocBuilder<ChannelListCubit, ChannelListState>(
+            sliver: BlocBuilder<ChannelListCubit, LoadingState<List<Channel>>>(
               builder: (context, state) {
                 final channels = state.map(
-                  initial: (a) => [],
-                  loading: (a) => a.cachedList,
-                  failure: (a) => [],
-                  ready: (a) => a.list,
+                  loading: (a) => a.cached.fold(
+                    () => <Channel>[],
+                    (a) => a,
+                  ),
+                  failed: (a) => <Channel>[],
+                  ready: (a) => a.data,
+                  waitingForConnection: (a) => a.cached.fold(
+                    () => <Channel>[],
+                    (a) => a,
+                  ),
                 );
                 return SliverList(
                     delegate: SliverChildBuilderDelegate(

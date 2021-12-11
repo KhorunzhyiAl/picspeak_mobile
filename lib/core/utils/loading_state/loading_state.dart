@@ -19,4 +19,5 @@ class LoadingState<T> with _$LoadingState<T> {
   const factory LoadingState.loading({@Default(None()) Option<T> cached}) = Loading;
   const factory LoadingState.ready(T data) = Ready<T>;
   const factory LoadingState.failed([@Default(Failure.empty()) Failure failure]) = Failed;
+  const factory LoadingState.waitingForConnection({@Default(None()) Option<T> cached}) = WaitingForConnection;
 }

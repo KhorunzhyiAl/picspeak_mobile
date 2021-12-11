@@ -4,9 +4,10 @@ import 'package:picspeak/core/utils/failure.dart';
 part 'entities.freezed.dart';
 
 @freezed
-class LoadAppState with _$LoadAppState {
-  const factory LoadAppState.initial() = _Initial;
-  const factory LoadAppState.localDataLoaded() = _LocalDataLoaded;
-  const factory LoadAppState.authenticated() = _Authenticated;
-  const factory LoadAppState.unauthenticated(Failure failure) = _Unauthenticated;
+class AppState with _$AppState {
+  const factory AppState.initial() = _Initial;
+  const factory AppState.localDataLoaded() = _LocalDataLoaded;
+  const factory AppState.authenticated() = _Authenticated;
+  const factory AppState.unauthenticated(Failure failure) = _Unauthenticated;
+  const factory AppState.offline() = _Offline;
 }

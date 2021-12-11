@@ -14,8 +14,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$LoadAppStateTearOff {
-  const _$LoadAppStateTearOff();
+class _$AppStateTearOff {
+  const _$AppStateTearOff();
 
   _Initial initial() {
     return const _Initial();
@@ -34,19 +34,24 @@ class _$LoadAppStateTearOff {
       failure,
     );
   }
+
+  _Offline offline() {
+    return const _Offline();
+  }
 }
 
 /// @nodoc
-const $LoadAppState = _$LoadAppStateTearOff();
+const $AppState = _$AppStateTearOff();
 
 /// @nodoc
-mixin _$LoadAppState {
+mixin _$AppState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() localDataLoaded,
     required TResult Function() authenticated,
     required TResult Function(Failure failure) unauthenticated,
+    required TResult Function() offline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,7 @@ mixin _$LoadAppState {
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
     TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +69,7 @@ mixin _$LoadAppState {
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
     TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,6 +79,7 @@ mixin _$LoadAppState {
     required TResult Function(_LocalDataLoaded value) localDataLoaded,
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Offline value) offline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +88,7 @@ mixin _$LoadAppState {
     TResult Function(_LocalDataLoaded value)? localDataLoaded,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,25 +97,25 @@ mixin _$LoadAppState {
     TResult Function(_LocalDataLoaded value)? localDataLoaded,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoadAppStateCopyWith<$Res> {
-  factory $LoadAppStateCopyWith(
-          LoadAppState value, $Res Function(LoadAppState) then) =
-      _$LoadAppStateCopyWithImpl<$Res>;
+abstract class $AppStateCopyWith<$Res> {
+  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
+      _$AppStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LoadAppStateCopyWithImpl<$Res> implements $LoadAppStateCopyWith<$Res> {
-  _$LoadAppStateCopyWithImpl(this._value, this._then);
+class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
+  _$AppStateCopyWithImpl(this._value, this._then);
 
-  final LoadAppState _value;
+  final AppState _value;
   // ignore: unused_field
-  final $Res Function(LoadAppState) _then;
+  final $Res Function(AppState) _then;
 }
 
 /// @nodoc
@@ -116,7 +125,7 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$LoadAppStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -132,7 +141,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'LoadAppState.initial()';
+    return 'AppState.initial()';
   }
 
   @override
@@ -151,6 +160,7 @@ class _$_Initial implements _Initial {
     required TResult Function() localDataLoaded,
     required TResult Function() authenticated,
     required TResult Function(Failure failure) unauthenticated,
+    required TResult Function() offline,
   }) {
     return initial();
   }
@@ -162,6 +172,7 @@ class _$_Initial implements _Initial {
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
     TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
   }) {
     return initial?.call();
   }
@@ -173,6 +184,7 @@ class _$_Initial implements _Initial {
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
     TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -188,6 +200,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_LocalDataLoaded value) localDataLoaded,
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Offline value) offline,
   }) {
     return initial(this);
   }
@@ -199,6 +212,7 @@ class _$_Initial implements _Initial {
     TResult Function(_LocalDataLoaded value)? localDataLoaded,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
   }) {
     return initial?.call(this);
   }
@@ -210,6 +224,7 @@ class _$_Initial implements _Initial {
     TResult Function(_LocalDataLoaded value)? localDataLoaded,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -219,7 +234,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements LoadAppState {
+abstract class _Initial implements AppState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -231,8 +246,7 @@ abstract class _$LocalDataLoadedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LocalDataLoadedCopyWithImpl<$Res>
-    extends _$LoadAppStateCopyWithImpl<$Res>
+class __$LocalDataLoadedCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
     implements _$LocalDataLoadedCopyWith<$Res> {
   __$LocalDataLoadedCopyWithImpl(
       _LocalDataLoaded _value, $Res Function(_LocalDataLoaded) _then)
@@ -249,7 +263,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
 
   @override
   String toString() {
-    return 'LoadAppState.localDataLoaded()';
+    return 'AppState.localDataLoaded()';
   }
 
   @override
@@ -268,6 +282,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
     required TResult Function() localDataLoaded,
     required TResult Function() authenticated,
     required TResult Function(Failure failure) unauthenticated,
+    required TResult Function() offline,
   }) {
     return localDataLoaded();
   }
@@ -279,6 +294,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
     TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
   }) {
     return localDataLoaded?.call();
   }
@@ -290,6 +306,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
     TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
     required TResult orElse(),
   }) {
     if (localDataLoaded != null) {
@@ -305,6 +322,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
     required TResult Function(_LocalDataLoaded value) localDataLoaded,
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Offline value) offline,
   }) {
     return localDataLoaded(this);
   }
@@ -316,6 +334,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
     TResult Function(_LocalDataLoaded value)? localDataLoaded,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
   }) {
     return localDataLoaded?.call(this);
   }
@@ -327,6 +346,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
     TResult Function(_LocalDataLoaded value)? localDataLoaded,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
     required TResult orElse(),
   }) {
     if (localDataLoaded != null) {
@@ -336,7 +356,7 @@ class _$_LocalDataLoaded implements _LocalDataLoaded {
   }
 }
 
-abstract class _LocalDataLoaded implements LoadAppState {
+abstract class _LocalDataLoaded implements AppState {
   const factory _LocalDataLoaded() = _$_LocalDataLoaded;
 }
 
@@ -348,8 +368,7 @@ abstract class _$AuthenticatedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$AuthenticatedCopyWithImpl<$Res>
-    extends _$LoadAppStateCopyWithImpl<$Res>
+class __$AuthenticatedCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
     implements _$AuthenticatedCopyWith<$Res> {
   __$AuthenticatedCopyWithImpl(
       _Authenticated _value, $Res Function(_Authenticated) _then)
@@ -366,7 +385,7 @@ class _$_Authenticated implements _Authenticated {
 
   @override
   String toString() {
-    return 'LoadAppState.authenticated()';
+    return 'AppState.authenticated()';
   }
 
   @override
@@ -385,6 +404,7 @@ class _$_Authenticated implements _Authenticated {
     required TResult Function() localDataLoaded,
     required TResult Function() authenticated,
     required TResult Function(Failure failure) unauthenticated,
+    required TResult Function() offline,
   }) {
     return authenticated();
   }
@@ -396,6 +416,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
     TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
   }) {
     return authenticated?.call();
   }
@@ -407,6 +428,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
     TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -422,6 +444,7 @@ class _$_Authenticated implements _Authenticated {
     required TResult Function(_LocalDataLoaded value) localDataLoaded,
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Offline value) offline,
   }) {
     return authenticated(this);
   }
@@ -433,6 +456,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function(_LocalDataLoaded value)? localDataLoaded,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
   }) {
     return authenticated?.call(this);
   }
@@ -444,6 +468,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function(_LocalDataLoaded value)? localDataLoaded,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -453,7 +478,7 @@ class _$_Authenticated implements _Authenticated {
   }
 }
 
-abstract class _Authenticated implements LoadAppState {
+abstract class _Authenticated implements AppState {
   const factory _Authenticated() = _$_Authenticated;
 }
 
@@ -466,8 +491,7 @@ abstract class _$UnauthenticatedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$UnauthenticatedCopyWithImpl<$Res>
-    extends _$LoadAppStateCopyWithImpl<$Res>
+class __$UnauthenticatedCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
     implements _$UnauthenticatedCopyWith<$Res> {
   __$UnauthenticatedCopyWithImpl(
       _Unauthenticated _value, $Res Function(_Unauthenticated) _then)
@@ -499,7 +523,7 @@ class _$_Unauthenticated implements _Unauthenticated {
 
   @override
   String toString() {
-    return 'LoadAppState.unauthenticated(failure: $failure)';
+    return 'AppState.unauthenticated(failure: $failure)';
   }
 
   @override
@@ -525,6 +549,7 @@ class _$_Unauthenticated implements _Unauthenticated {
     required TResult Function() localDataLoaded,
     required TResult Function() authenticated,
     required TResult Function(Failure failure) unauthenticated,
+    required TResult Function() offline,
   }) {
     return unauthenticated(failure);
   }
@@ -536,6 +561,7 @@ class _$_Unauthenticated implements _Unauthenticated {
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
     TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
   }) {
     return unauthenticated?.call(failure);
   }
@@ -547,6 +573,7 @@ class _$_Unauthenticated implements _Unauthenticated {
     TResult Function()? localDataLoaded,
     TResult Function()? authenticated,
     TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -562,6 +589,7 @@ class _$_Unauthenticated implements _Unauthenticated {
     required TResult Function(_LocalDataLoaded value) localDataLoaded,
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Offline value) offline,
   }) {
     return unauthenticated(this);
   }
@@ -573,6 +601,7 @@ class _$_Unauthenticated implements _Unauthenticated {
     TResult Function(_LocalDataLoaded value)? localDataLoaded,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
   }) {
     return unauthenticated?.call(this);
   }
@@ -584,6 +613,7 @@ class _$_Unauthenticated implements _Unauthenticated {
     TResult Function(_LocalDataLoaded value)? localDataLoaded,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -593,11 +623,131 @@ class _$_Unauthenticated implements _Unauthenticated {
   }
 }
 
-abstract class _Unauthenticated implements LoadAppState {
+abstract class _Unauthenticated implements AppState {
   const factory _Unauthenticated(Failure failure) = _$_Unauthenticated;
 
   Failure get failure;
   @JsonKey(ignore: true)
   _$UnauthenticatedCopyWith<_Unauthenticated> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$OfflineCopyWith<$Res> {
+  factory _$OfflineCopyWith(_Offline value, $Res Function(_Offline) then) =
+      __$OfflineCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$OfflineCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
+    implements _$OfflineCopyWith<$Res> {
+  __$OfflineCopyWithImpl(_Offline _value, $Res Function(_Offline) _then)
+      : super(_value, (v) => _then(v as _Offline));
+
+  @override
+  _Offline get _value => super._value as _Offline;
+}
+
+/// @nodoc
+
+class _$_Offline implements _Offline {
+  const _$_Offline();
+
+  @override
+  String toString() {
+    return 'AppState.offline()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Offline);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() localDataLoaded,
+    required TResult Function() authenticated,
+    required TResult Function(Failure failure) unauthenticated,
+    required TResult Function() offline,
+  }) {
+    return offline();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? localDataLoaded,
+    TResult Function()? authenticated,
+    TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
+  }) {
+    return offline?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? localDataLoaded,
+    TResult Function()? authenticated,
+    TResult Function(Failure failure)? unauthenticated,
+    TResult Function()? offline,
+    required TResult orElse(),
+  }) {
+    if (offline != null) {
+      return offline();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LocalDataLoaded value) localDataLoaded,
+    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Offline value) offline,
+  }) {
+    return offline(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LocalDataLoaded value)? localDataLoaded,
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
+  }) {
+    return offline?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LocalDataLoaded value)? localDataLoaded,
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Offline value)? offline,
+    required TResult orElse(),
+  }) {
+    if (offline != null) {
+      return offline(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Offline implements AppState {
+  const factory _Offline() = _$_Offline;
 }
