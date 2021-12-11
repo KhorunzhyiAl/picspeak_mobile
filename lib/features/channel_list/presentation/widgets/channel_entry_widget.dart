@@ -58,7 +58,7 @@ class ChannelEntryWidget extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        Utils.formateDateTime(channel.events.first.start),
+                        Utils.formatDateTime(channel.events.first.start),
                         style: theme.textTheme.caption?.copyWith(
                           color: theme.colorScheme.onSurface,
                         ),

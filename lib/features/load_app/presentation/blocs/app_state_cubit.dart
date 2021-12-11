@@ -11,7 +11,7 @@ class AppLoadingCubit extends Cubit<AppState> {
   }
 
   void _start() {
-    _loadAppInteractor.execute().listen((event) {
+    _loadAppInteractor().listen((event) {
       emit(event);
     });
   }

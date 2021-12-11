@@ -1,22 +1,92 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:picspeak/features/channel_view/presentation/pages/channel_home_page.dart';
 
 class ChannelScreen extends StatefulWidget {
-  final String channelId;
+  const ChannelScreen({
+    Key? key,
+    required this.channelId,
+  }) : super(key: key);
 
-  const ChannelScreen({Key? key, required this.channelId}) : super(key: key);
+  final String channelId;
 
   @override
   State<ChannelScreen> createState() => _ChannelScreenState();
 }
 
-class _ChannelScreenState extends State<ChannelScreen> {
+class _ChannelScreenState extends State<ChannelScreen> with TickerProviderStateMixin {
+  late final tabBarController = TabController(length: 3, vsync: this);
+
   @override
   Widget build(BuildContext context) {
-    final nav = Navigator.of(context);
     final theme = Theme.of(context);
-
-    return Container();
+    return Material(
+      color: theme.colorScheme.background,
+      child: NestedScrollView(
+        headerSliverBuilder: (context, _) {
+          return <Widget>[
+            SliverAppBar(
+              pinned: true,
+              elevation: 10,
+              toolbarHeight: 50,
+              shadowColor: theme.shadowColor,
+              backgroundColor: theme.colorScheme.background,
+              foregroundColor: theme.colorScheme.primary,
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {},
+              ),
+              bottom: PreferredSize(
+                preferredSize: const Size.fromHeight(40),
+                child: SizedBox(
+                  width: 350,
+                  child: TabBar(
+                    controller: tabBarController,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    labelPadding: EdgeInsets.zero,
+                    indicatorColor: theme.colorScheme.onBackground,
+                    labelColor: theme.colorScheme.onBackground,
+                    unselectedLabelColor: theme.colorScheme.onBackground.withOpacity(0.5),
+                    labelStyle: theme.textTheme.headline5,
+                    tabs: const [
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+                        child: Tab(
+                          text: 'Home',
+                          height: 30,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+                        child: Tab(
+                          text: 'Recordings',
+                          height: 30,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+                        child: Tab(
+                          text: 'About',
+                          height: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ];
+        },
+        body: TabBarView(
+          controller: tabBarController,
+          children: [
+            const ChannelHomePage(),
+            Container(),
+            Container(),
+          ],
+        ),
+      ),
+    );
   }
 }
