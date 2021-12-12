@@ -49,7 +49,7 @@ class ChannelListScreen extends StatelessWidget {
             ),
           ),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             sliver: BlocBuilder<ChannelListCubit, LoadingState<List<Channel>>>(
               builder: (context, state) {
                 final channels = state.map(
@@ -77,6 +77,7 @@ class ChannelListScreen extends StatelessWidget {
               },
             ),
           ),
+          const SliverToBoxAdapter(child: SizedBox(height: 15)),
         ],
       ),
     );

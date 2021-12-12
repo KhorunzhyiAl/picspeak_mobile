@@ -6,7 +6,7 @@ class LoadAppInteractor {
 
   final AppRepository _repository;
 
-  Stream<AppState> execute() async* {
+  Stream<AppState> call() async* {
     await _repository.loadLocalData();
     yield const AppState.localDataLoaded();
 
