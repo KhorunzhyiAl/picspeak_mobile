@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:picspeak/core/domain/entities/channel.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/channel.dart';
 import 'package:picspeak/core/presentation/routes.dart';
 import 'package:picspeak/core/utils/utils.dart';
 

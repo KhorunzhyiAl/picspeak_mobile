@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:picspeak/features/channel_view/presentation/pages/channel_home_page.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/channel_home_page.dart';
 
 class ChannelScreen extends StatefulWidget {
   const ChannelScreen({

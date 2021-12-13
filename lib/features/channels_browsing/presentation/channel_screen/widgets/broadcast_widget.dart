@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:picspeak/core/domain/entities/channel.dart';
-import 'package:picspeak/core/domain/entities/event.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/channel.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/event.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
 import 'package:picspeak/core/utils/utils.dart';
-import 'package:picspeak/features/channel_view/presentation/cubit/channel_cubit.dart';
-import 'package:picspeak/features/channel_view/presentation/widgets/continuous_refresh.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_cubit.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/widgets/continuous_refresh.dart';
 
 class BroadcastWidget extends StatefulWidget {
   const BroadcastWidget({Key? key}) : super(key: key);

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:picspeak/core/domain/entities/channel.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/channel.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
-import 'package:picspeak/features/channel_view/presentation/cubit/channel_cubit.dart';
-import 'package:picspeak/features/channel_view/presentation/widgets/schedule_entry_widget.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_cubit.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/widgets/schedule_entry_widget.dart';
 
 class ChannelScheduleWidget extends StatelessWidget {
   const ChannelScheduleWidget({Key? key}) : super(key: key);
