@@ -27,7 +27,7 @@ class Routes {
             create: (context) => ChannelListCubit(
               getChannelList: locator.get<GetChannellListInteractor>(),
             ),
-            child: const ChannelListScreen(),
+            child: ChannelListScreen(),
           );
           break;
 
