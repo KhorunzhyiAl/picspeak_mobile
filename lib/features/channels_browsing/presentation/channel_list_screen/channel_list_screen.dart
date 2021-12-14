@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:picspeak/features/app_state/presentation/blocs/app_state.dart';
 import 'package:picspeak/features/channels_browsing/domain/entities/channel.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/cubit/channel_list_cubit.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/widgets/animated_text_switch.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/widgets/channel_entry_widget.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/widgets/my_drawer.dart';
-import 'package:picspeak/features/load_app/presentation/blocs/app_state_cubit.dart';
-import 'package:picspeak/features/load_app/domain/entities/entities.dart';
+import 'package:picspeak/features/app_state/presentation/blocs/app_state_cubit.dart';
+import 'package:picspeak/features/app_state/domain/entities/load_app_state.dart';
 
 class ChannelListScreen extends StatelessWidget {
   ChannelListScreen({Key? key}) : super(key: key);
@@ -38,14 +39,16 @@ class ChannelListScreen extends StatelessWidget {
                   _scaffoldKey.currentState?.openDrawer();
                 },
               ),
-              title: BlocBuilder<AppLoadingCubit, AppState>(
+              title: BlocBuilder<AppStateCubit, AppState>(
                 builder: (context, state) {
                   final text = state.map(
                     initial: (a) => 'Loading...',
                     localDataLoaded: (a) => 'Connecting...',
-                    authenticated: (a) => 'Picspeak',
-                    unauthenticated: (a) => 'Picspeak (guest)',
-                    offline: (a) => 'Waiting for connection...',
+                    online: (a) => a.authState.map(
+                      guest: (a) => 'Picspeak (guest)',
+                      authenticated: (a) => 'Picspeak',
+                    ),
+                    offline: (a) => 'Picspeak (offline)',
                   );
                   return AnimatedTextSwitch(
                     text: text,

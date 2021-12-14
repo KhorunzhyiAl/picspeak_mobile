@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:picspeak/core/presentation/locator.dart';
 import 'package:picspeak/core/presentation/theme/themes.dart';
 import 'package:picspeak/core/presentation/routes.dart';
-import 'package:picspeak/features/load_app/presentation/widgets/app_loading_listener.dart';
+import 'package:picspeak/features/app_state/domain/load_app_interactor.dart';
+import 'package:picspeak/features/app_state/presentation/blocs/app_state_cubit.dart';
+import 'package:picspeak/features/app_state/presentation/widgets/app_state_listener.dart';
 
 void main() {
   initLocator();
@@ -16,14 +19,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppLoadingListener(
-      navigatorKey: nav,
-      child: MaterialApp(
-        title: 'Picspeak',
-        theme: MyThemes.light,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider.value(
+          value: AppStateCubit(
+            loadApp: locator.get<LoadAppInteractor>(),
+          ),
+        ),
+      ],
+      child: AppStateListener(
         navigatorKey: nav,
-        onGenerateRoute: Routes.routeGenerator,
-        initialRoute: Routes.splash,
+        child: MaterialApp(
+          title: 'Picspeak',
+          theme: MyThemes.light,
+          navigatorKey: nav,
+          onGenerateRoute: Routes.routeGenerator,
+          initialRoute: Routes.splash,
+        ),
       ),
     );
   }

@@ -8,7 +8,7 @@ class Utils {
   }
 
   static String formatDuration(Duration duration) {
-    final d = duration; // it's shorter
+    final d = duration;
     var result = '';
 
     if (d.inDays > 0) result += '${d.inDays}d ';

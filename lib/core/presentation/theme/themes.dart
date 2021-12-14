@@ -9,12 +9,12 @@ class MyThemes {
       secondaryVariant: const Color.fromARGB(255, 223, 223, 223), // rgb(103, 137, 131)
       surface: const Color.fromARGB(255, 243, 243, 243),
       background: Colors.white,
-      error: Colors.transparent,
+      error: Colors.red.shade600,
       onPrimary: Colors.white,
       onSecondary: Colors.black,
       onSurface: Colors.black,
       onBackground: Colors.black,
-      onError: Colors.red.shade800,
+      onError: Colors.white,
       brightness: Brightness.light,
     ),
     textTheme: const TextTheme(
@@ -57,6 +57,16 @@ class MyThemes {
         fontFamily: 'Farro',
         fontSize: 14,
         fontWeight: FontWeight.w500,
+      ),
+
+      bodyText1: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+      ),
+
+      bodyText2: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w300,
       ),
     ),
   );
