@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:picspeak/core/domain/entities/talk.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/talk.dart';
 part 'event.freezed.dart';
 
 @freezed

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:picspeak/core/domain/entities/channel.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/channel.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
-import 'package:picspeak/features/channel_list/presentation/cubit/channel_list_cubit.dart';
-import 'package:picspeak/features/channel_list/presentation/widgets/animated_text_switch.dart';
-import 'package:picspeak/features/channel_list/presentation/widgets/channel_entry_widget.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/cubit/channel_list_cubit.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/widgets/animated_text_switch.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/widgets/channel_entry_widget.dart';
 import 'package:picspeak/features/load_app/presentation/blocs/app_state_cubit.dart';
 import 'package:picspeak/features/load_app/domain/entities/entities.dart';
 

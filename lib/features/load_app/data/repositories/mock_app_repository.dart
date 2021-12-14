@@ -1,4 +1,4 @@
-import 'package:picspeak/core/data/repositories/cacheable.dart';
+import 'package:picspeak/core/data/utils/cacheable.dart';
 import 'package:picspeak/core/utils/failure.dart';
 import 'package:picspeak/features/load_app/domain/repositories.dart';
 

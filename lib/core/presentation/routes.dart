@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:picspeak/core/presentation/locator.dart';
 import 'package:picspeak/core/presentation/splash_screen.dart';
-import 'package:picspeak/features/channel_list/domain/get_channel_list_interactor.dart';
-import 'package:picspeak/features/channel_list/presentation/cubit/channel_list_cubit.dart';
-import 'package:picspeak/features/channel_view/presentation/channel_screen.dart';
-import 'package:picspeak/features/channel_list/presentation/channel_list_screen.dart';
-import 'package:picspeak/features/channel_view/presentation/cubit/channel_cubit.dart';
+import 'package:picspeak/features/channels_browsing/domain/get_channel_list_interactor.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/cubit/channel_list_cubit.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/channel_screen.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/channel_list_screen.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_cubit.dart';
 
 class Routes {
   static const splash = '/';

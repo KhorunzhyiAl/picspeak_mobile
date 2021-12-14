@@ -1,7 +1,7 @@
-import 'package:picspeak/core/data/repositories/cacheable.dart';
-import 'package:picspeak/core/domain/entities/channel.dart';
-import 'package:picspeak/core/domain/entities/event.dart';
-import 'package:picspeak/core/domain/repositories/channels_repository.dart';
+import 'package:picspeak/core/data/utils/cacheable.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/channel.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/event.dart';
+import 'package:picspeak/features/channels_browsing/domain/repositories/channels_repository.dart';
 import 'package:picspeak/core/utils/result/result.dart';
 
 class MockChannelsRepository with Cacheable implements ChannelsRepository {

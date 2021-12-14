@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:picspeak/core/domain/entities/channel.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/channel.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
-import 'package:picspeak/features/channel_view/domain/interactors.dart';
+import 'package:picspeak/features/channels_browsing/domain/get_channel_interactor.dart';
 
 class ChannelCubit extends Cubit<LoadingState<Channel>> {
   ChannelCubit(
