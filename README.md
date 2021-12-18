@@ -1,2 +1,2 @@
-# Picspeak
-Platform for organizing interactive online presentations
+# Picspeak (work in progress)
+Platform for organizing interactive online presentations 
