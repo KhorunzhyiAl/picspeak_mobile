@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:picspeak/core/domain/interactors/await_for_connection_interactor.dart';
 import 'package:picspeak/core/utils/failure.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';

@@ -39,6 +39,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   w_common: ^1.20.8
   get_it: ^7.2.0
+  injectable: ^1.5.0
+  injectable_generator: ^1.5.2
 
 
 dev_dependencies:

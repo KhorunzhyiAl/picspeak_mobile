@@ -1,17 +1,27 @@
+import 'package:flutter/cupertino.dart';
+import 'package:injectable/injectable.dart';
 import 'package:picspeak/core/data/utils/cacheable.dart';
+import 'package:picspeak/core/data/utils/cacheable_loader.dart';
 import 'package:picspeak/features/channels_browsing/domain/entities/channel.dart';
 import 'package:picspeak/features/channels_browsing/domain/entities/event.dart';
 import 'package:picspeak/features/channels_browsing/domain/repositories/channels_repository.dart';
 import 'package:picspeak/core/utils/result/result.dart';
 
+@Singleton(as: ChannelsRepository)
 class MockChannelsRepository with Cacheable implements ChannelsRepository {
+  MockChannelsRepository(
+    CacheableLoader cacheableLoader,
+  ) {
+    cacheableLoader.addCacheable(this);
+  }
+
   @override
   Future<void> cache() async {
     await Future.delayed(const Duration(seconds: 1));
   }
 
   @override
-  Future<void> uncache() async {
+  Future<void> load() async {
     await Future.delayed(const Duration(seconds: 1));
   }
 

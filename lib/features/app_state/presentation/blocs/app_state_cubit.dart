@@ -1,14 +1,13 @@
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:picspeak/features/app_state/domain/load_app_interactor.dart';
 import 'package:picspeak/features/app_state/presentation/blocs/app_state.dart';
 
+@LazySingleton()
 class AppStateCubit extends Cubit<AppState> {
-  AppStateCubit({
-    required LoadAppInteractor loadApp,
-  })  : _loadAppInteractor = loadApp,
-        super(const AppState.initial()) {
-    onAppStarted();
-  }
+  AppStateCubit(
+    this._loadAppInteractor,
+  ) : super(const AppState.initial());
 
   void onAppStarted() {
     _loadAppInteractor().listen((event) {

@@ -1,6 +1,8 @@
+import 'package:injectable/injectable.dart';
 import 'package:picspeak/features/connection/domain/entities/connection_state.dart';
 import 'package:picspeak/features/connection/domain/repositories/connection_repository.dart';
 
+@Injectable()
 class AwaitForConnectionInteractor {
   AwaitForConnectionInteractor(this._connectionRepository);
   
