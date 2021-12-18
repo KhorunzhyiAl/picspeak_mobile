@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:picspeak/core/presentation/locator.dart';
 import 'package:picspeak/core/presentation/splash_screen.dart';
+import 'package:picspeak/features/auth/presentation/log_in_form/cubit/log_in_form_cubit.dart';
+import 'package:picspeak/features/auth/presentation/log_in_form/log_in_form_screen.dart';
+import 'package:picspeak/features/auth/presentation/sign_up_form/cubit/sign_up_form_cubit.dart';
+import 'package:picspeak/features/auth/presentation/sign_up_form/sign_up_form_screen.dart';
 import 'package:picspeak/features/channels_browsing/domain/get_channel_list_interactor.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/cubit/channel_list_cubit.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/channel_screen.dart';
@@ -13,6 +17,8 @@ class Routes {
   static const splash = '/';
   static const home = '/home';
   static const channel = '/channel';
+  static const logIn = '/log_in';
+  static const signUp = '/sign_up';
 
   static Route<dynamic> routeGenerator(RouteSettings settings) {
     try {
@@ -44,6 +50,31 @@ class Routes {
               )
             ],
             child: ChannelScreen(channelId: value),
+          );
+          break;
+
+        case Routes.logIn:
+          child = MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => LogInFormCubit(
+                  locator.get(),
+                ),
+              )
+            ],
+            child: const LogInFormScreen(),
+          );
+          break;
+
+        case Routes.signUp:
+          child = MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => SignUpFormCubit(locator.get()),
+                child: Container(),
+              )
+            ],
+            child: const SignUpFormScreen(),
           );
           break;
 

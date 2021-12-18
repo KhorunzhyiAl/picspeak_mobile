@@ -1,6 +1,6 @@
 import 'package:picspeak/core/data/utils/cacheable.dart';
 import 'package:picspeak/core/utils/failure.dart';
-import 'package:picspeak/features/load_app/domain/repositories.dart';
+import 'package:picspeak/features/app_state/domain/app_repository.dart';
 
 class AppRepositoryImpl implements AppRepository {
   AppRepositoryImpl({
@@ -26,6 +26,6 @@ class AppRepositoryImpl implements AppRepository {
   Future<Failure?> authenticate() async {
     await Future.delayed(const Duration(seconds: 5));
 
-    return null;
+    return const Failure.empty();
   }
 }
