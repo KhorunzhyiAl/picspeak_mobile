@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/channel_home_page.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_cubit.dart';
 
 class ChannelScreen extends StatefulWidget {
   const ChannelScreen({
@@ -17,6 +19,14 @@ class ChannelScreen extends StatefulWidget {
 
 class _ChannelScreenState extends State<ChannelScreen> with TickerProviderStateMixin {
   late final tabBarController = TabController(length: 3, vsync: this);
+
+  @override
+  void initState() {
+    super.initState();
+    
+    final channelCubit = BlocProvider.of<ChannelCubit>(context, listen: false);
+    channelCubit.onChannelOpened(widget.channelId);
+  }
 
   @override
   Widget build(BuildContext context) {

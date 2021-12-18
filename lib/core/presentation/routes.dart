@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:picspeak/core/presentation/locator.dart';
+import 'package:picspeak/core/presentation/injectable/injectable_init.dart';
 import 'package:picspeak/core/presentation/splash_screen.dart';
 import 'package:picspeak/features/auth/presentation/log_in_form/cubit/log_in_form_cubit.dart';
 import 'package:picspeak/features/auth/presentation/log_in_form/log_in_form_screen.dart';
 import 'package:picspeak/features/auth/presentation/sign_up_form/cubit/sign_up_form_cubit.dart';
 import 'package:picspeak/features/auth/presentation/sign_up_form/sign_up_form_screen.dart';
-import 'package:picspeak/features/channels_browsing/domain/get_channel_list_interactor.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/cubit/channel_list_cubit.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/channel_screen.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/channel_list_screen.dart';
@@ -29,10 +28,8 @@ class Routes {
           child = const SplashScreen();
           break;
         case Routes.home:
-          child = BlocProvider(
-            create: (context) => ChannelListCubit(
-              getChannelList: locator.get<GetChannellListInteractor>(),
-            ),
+          child = BlocProvider<ChannelListCubit>(
+            create: (context) => getIt.get(),
             child: ChannelListScreen(),
           );
           break;
@@ -42,11 +39,8 @@ class Routes {
           final value = args['channelId'] as String;
           child = MultiBlocProvider(
             providers: [
-              BlocProvider(
-                create: (context) => ChannelCubit(
-                  locator.get(),
-                  channelId: value,
-                ),
+              BlocProvider<ChannelCubit>(
+                create: (context) => getIt.get(),
               )
             ],
             child: ChannelScreen(channelId: value),
@@ -58,7 +52,7 @@ class Routes {
             providers: [
               BlocProvider(
                 create: (context) => LogInFormCubit(
-                  locator.get(),
+                  getIt.get(),
                 ),
               )
             ],
@@ -69,8 +63,8 @@ class Routes {
         case Routes.signUp:
           child = MultiBlocProvider(
             providers: [
-              BlocProvider(
-                create: (context) => SignUpFormCubit(locator.get()),
+              BlocProvider<SignUpFormCubit>(
+                create: (context) => getIt.get(),
                 child: Container(),
               )
             ],

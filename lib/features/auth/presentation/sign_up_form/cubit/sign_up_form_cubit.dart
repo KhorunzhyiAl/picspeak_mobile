@@ -1,9 +1,11 @@
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:picspeak/features/app_state/presentation/blocs/app_state_cubit.dart';
 import 'package:picspeak/features/auth/domain/interactors/sign_up_interactor.dart';
 
 import 'package:picspeak/features/auth/presentation/sign_up_form/cubit/sign_up_form_data.dart';
 
+@LazySingleton()
 class SignUpFormCubit extends Cubit<SignUpFormData> {
   SignUpFormCubit(
     this._signUpInteractor,
