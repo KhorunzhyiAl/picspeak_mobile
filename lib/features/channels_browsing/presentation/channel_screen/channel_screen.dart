@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:picspeak/features/channels_browsing/presentation/channel_screen/channel_home_page.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_home/channel_home_page.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_cubit.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_recordings/channel_recordings_page.dart';
 
 class ChannelScreen extends StatefulWidget {
   const ChannelScreen({
@@ -23,7 +24,7 @@ class _ChannelScreenState extends State<ChannelScreen> with TickerProviderStateM
   @override
   void initState() {
     super.initState();
-    
+
     final channelCubit = BlocProvider.of<ChannelCubit>(context, listen: false);
     channelCubit.onChannelOpened(widget.channelId);
   }
@@ -93,12 +94,40 @@ class _ChannelScreenState extends State<ChannelScreen> with TickerProviderStateM
         body: TabBarView(
           controller: tabBarController,
           children: [
-            const ChannelHomePage(),
-            Container(),
+            const MyKeepAlive(
+              child: ChannelHomePage(),
+            ),
+            MyKeepAlive(
+              child: ChannelRecordingsPage(
+                channelId: widget.channelId,
+              ),
+            ),
             Container(),
           ],
         ),
       ),
     );
+  }
+}
+
+class MyKeepAlive extends StatefulWidget {
+  const MyKeepAlive({
+    required this.child,
+    Key? key,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  _MyKeepAliveState createState() => _MyKeepAliveState();
+}
+
+class _MyKeepAliveState extends State<MyKeepAlive> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  Widget build(BuildContext context) {
+    return widget.child;
   }
 }

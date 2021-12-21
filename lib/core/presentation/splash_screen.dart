@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// Shows splash screen and starts loading. When the loading finishes, navigates to the home page.
@@ -7,8 +6,6 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final nav = Navigator.of(context);
-
-    return Container(color: Colors.amber.shade700);
+    return Container(color: Colors.blue.shade700);
   }
 }

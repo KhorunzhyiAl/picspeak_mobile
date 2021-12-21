@@ -1,23 +1,18 @@
 import 'package:injectable/injectable.dart';
 import 'package:picspeak/core/domain/interactors/await_for_connection_interactor.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/channel.dart';
-import 'package:picspeak/core/domain/interactors/load_data_interactor.dart';
-import 'package:picspeak/features/channels_browsing/domain/repositories/channels_repository.dart';
-import 'package:picspeak/core/utils/loading_state/loading_state.dart';
+import 'package:picspeak/core/utils/result/result.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/channel/channel.dart';
+import 'package:picspeak/features/channels_browsing/domain/repositories/channel_repository.dart';
 
 @LazySingleton()
 class GetChannelInteractor {
   GetChannelInteractor(
     this._channelsRepository,
-    AwaitForConnectionInteractor awaitForConnectionInteractor,
-  ) : _loadDataInteractor = LoadDataInteractor(awaitForConnectionInteractor);
+  );
 
-  final ChannelsRepository _channelsRepository;
-  final LoadDataInteractor<Channel> _loadDataInteractor;
+  final ChannelRepository _channelsRepository;
 
-  Stream<LoadingState<Channel>> call(String channelId) async* {
-    yield* _loadDataInteractor(
-      loadData: () => _channelsRepository.loadChannel(channelId),
-    );
+  Future<Result<Channel>> call(String channelId) async {
+    return _channelsRepository.loadChannel(channelId);
   }
 }
