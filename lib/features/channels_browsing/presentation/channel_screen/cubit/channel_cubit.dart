@@ -6,7 +6,7 @@ import 'package:picspeak/features/channels_browsing/domain/entities/channel/chan
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
 import 'package:picspeak/features/channels_browsing/domain/get_channel_interactor.dart';
 
-@LazySingleton()
+@Injectable()
 class ChannelCubit extends Cubit<LoadingState<Channel>> {
   ChannelCubit(
     this._getChannelInteractor,

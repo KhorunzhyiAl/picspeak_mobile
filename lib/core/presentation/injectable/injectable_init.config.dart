@@ -23,8 +23,10 @@ import 'package:picspeak/features/app_state/domain/repositories/connection_repos
     as _i10;
 import 'package:picspeak/features/app_state/presentation/app_state/blocs/app_state_cubit.dart'
     as _i16;
-import 'package:picspeak/features/app_state/presentation/auth_forms/sign_up_form/cubit/sign_up_form_cubit.dart'
+import 'package:picspeak/features/app_state/presentation/auth_forms/log_in_form/cubit/log_in_form_cubit.dart'
     as _i21;
+import 'package:picspeak/features/app_state/presentation/auth_forms/sign_up_form/cubit/sign_up_form_cubit.dart'
+    as _i22;
 import 'package:picspeak/features/channels_browsing/data/channel_list_repository_impl.dart'
     as _i7;
 import 'package:picspeak/features/channels_browsing/data/channel_repository_impl.dart'
@@ -40,7 +42,7 @@ import 'package:picspeak/features/channels_browsing/domain/repositories/channel_
 import 'package:picspeak/features/channels_browsing/domain/repositories/channel_repository.dart'
     as _i8;
 import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/cubit/channel_list_cubit.dart'
-    as _i22;
+    as _i23;
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_cubit.dart'
     as _i18;
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_recordings_cubit.dart'
@@ -72,16 +74,18 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i16.AppStateCubit(get<_i5.AuthWithTokenInteractor>()));
   gh.factory<_i17.AwaitForConnectionInteractor>(() =>
       _i17.AwaitForConnectionInteractor(get<_i10.ConnectionRepository>()));
-  gh.lazySingleton<_i18.ChannelCubit>(
+  gh.factory<_i18.ChannelCubit>(
       () => _i18.ChannelCubit(get<_i12.GetChannelInteractor>()));
   gh.factory<_i19.ChannelRecordingsCubit>(() =>
       _i19.ChannelRecordingsCubit(get<_i13.GetChannelRecordingsInteractor>()));
   gh.lazySingleton<_i20.GetChannellListInteractor>(() =>
       _i20.GetChannellListInteractor(get<_i6.ChannelListRepository>(),
           get<_i17.AwaitForConnectionInteractor>()));
-  gh.lazySingleton<_i21.SignUpFormCubit>(
-      () => _i21.SignUpFormCubit(get<_i15.SignUpInteractor>()));
-  gh.lazySingleton<_i22.ChannelListCubit>(() => _i22.ChannelListCubit(
+  gh.factory<_i21.LogInFormCubit>(
+      () => _i21.LogInFormCubit(get<_i14.LogInInteractor>()));
+  gh.factory<_i22.SignUpFormCubit>(
+      () => _i22.SignUpFormCubit(get<_i15.SignUpInteractor>()));
+  gh.factory<_i23.ChannelListCubit>(() => _i23.ChannelListCubit(
       getChannelList: get<_i20.GetChannellListInteractor>()));
   return get;
 }
