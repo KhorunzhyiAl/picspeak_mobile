@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_home/channel_home_page.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_cubit.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_info/channel_info_page.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_recordings/channel_recordings_page.dart';
 
 class ChannelScreen extends StatefulWidget {
@@ -102,7 +103,9 @@ class _ChannelScreenState extends State<ChannelScreen> with TickerProviderStateM
                 channelId: widget.channelId,
               ),
             ),
-            Container(),
+            const MyKeepAlive(
+              child: ChannelInfoPage(),
+            ),
           ],
         ),
       ),

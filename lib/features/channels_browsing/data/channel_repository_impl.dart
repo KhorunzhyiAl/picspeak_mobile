@@ -1,16 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 import 'package:picspeak/core/utils/result/result.dart';
+import 'package:picspeak/core/utils/utils.dart';
 import 'package:picspeak/features/channels_browsing/domain/entities/channel/channel.dart';
 import 'package:picspeak/features/channels_browsing/domain/entities/event/event.dart';
 import 'package:picspeak/features/channels_browsing/domain/entities/event_recording_entry/event_recording_entry.dart';
 import 'package:picspeak/features/channels_browsing/domain/entities/talk/talk.dart';
 import 'package:picspeak/features/channels_browsing/domain/entities/talk_recording_entry/talk_recording_entry.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/user/user.dart';
 import 'package:picspeak/features/channels_browsing/domain/repositories/channel_repository.dart';
 
 @LazySingleton(as: ChannelRepository)
 class ChannelRepositoryImpl implements ChannelRepository {
   @override
   Future<Result<Channel>> loadChannel(String id) async {
+    debugPrint('loadChannel called');
+    
     await Future.delayed(const Duration(seconds: 2));
     return Result.ok(
       Channel(
@@ -18,6 +23,14 @@ class ChannelRepositoryImpl implements ChannelRepository {
         imageId: 'imageUrl',
         name: 'Channel name lorem ipsum dolor sit amet',
         nextEventDate: DateTime.now(),
+        description: Utils.loremIpsum,
+        members: [
+          for (int i = 0; i < 5; ++i)
+            User(
+              userId: 'userId$i',
+              username: 'user${i}something',
+            )
+        ],
         events: [
           Event(
             eventId: 'event1',

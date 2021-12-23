@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:picspeak/features/app_state/domain/interactors/log_in_interactor.dart';
 import 'package:picspeak/features/app_state/presentation/app_state/blocs/app_state_cubit.dart';
 import 'package:picspeak/features/app_state/presentation/auth_forms/log_in_form/cubit/log_in_form_data.dart';
 
+@Injectable()
 class LogInFormCubit extends Cubit<LogInFormData> {
   LogInFormCubit(
     this._logInInteractor,
