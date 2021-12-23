@@ -20,6 +20,7 @@ class LoadingPlaceholder extends StatelessWidget {
       width: width,
       child: Card(
         elevation: 0,
+        margin: EdgeInsets.zero,
         color: color,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),

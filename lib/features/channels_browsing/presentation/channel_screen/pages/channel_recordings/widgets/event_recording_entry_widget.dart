@@ -23,7 +23,7 @@ class _EventRecordingEntryWidgetState extends State<EventRecordingEntryWidget> {
   @override
   void initState() {
     super.initState();
-    
+
     _isExpanded = ValueNotifier(false);
   }
 
@@ -37,6 +37,7 @@ class _EventRecordingEntryWidgetState extends State<EventRecordingEntryWidget> {
           color: theme.colorScheme.surface,
           elevation: 0,
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+          clipBehavior: Clip.hardEdge,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
           ),
@@ -70,7 +71,20 @@ class _EventRecordingEntryWidgetState extends State<EventRecordingEntryWidget> {
       padding: const EdgeInsets.all(10),
       child: Row(
         children: [
-          Icon(Icons.expand_more, color: theme.colorScheme.onSurface),
+          ValueListenableBuilder<bool>(
+            valueListenable: _isExpanded,
+            builder: (context, isExpanded, child) {
+              return isExpanded
+                  ? Icon(
+                      Icons.expand_less,
+                      color: theme.colorScheme.onSurface,
+                    )
+                  : Icon(
+                      Icons.expand_more,
+                      color: theme.colorScheme.onSurface,
+                    );
+            },
+          ),
           const SizedBox(width: 15),
           Expanded(
             child: Column(

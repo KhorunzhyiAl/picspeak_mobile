@@ -35,63 +35,58 @@ class _ChannelScreenState extends State<ChannelScreen> with TickerProviderStateM
     final theme = Theme.of(context);
     return Material(
       color: theme.colorScheme.background,
-      child: NestedScrollView(
-        headerSliverBuilder: (context, _) {
-          return <Widget>[
-            SliverAppBar(
-              pinned: true,
-              elevation: 10,
-              toolbarHeight: 50,
-              shadowColor: theme.shadowColor,
-              backgroundColor: theme.colorScheme.background,
-              foregroundColor: theme.colorScheme.primary,
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              bottom: PreferredSize(
-                preferredSize: const Size.fromHeight(40),
-                child: SizedBox(
-                  width: 350,
-                  child: TabBar(
-                    controller: tabBarController,
-                    indicatorSize: TabBarIndicatorSize.label,
-                    labelPadding: EdgeInsets.zero,
-                    indicatorColor: theme.colorScheme.onBackground,
-                    labelColor: theme.colorScheme.onBackground,
-                    unselectedLabelColor: theme.colorScheme.onBackground.withOpacity(0.5),
-                    labelStyle: theme.textTheme.headline5,
-                    tabs: const [
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
-                        child: Tab(
-                          text: 'Home',
-                          height: 30,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
-                        child: Tab(
-                          text: 'Recordings',
-                          height: 30,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
-                        child: Tab(
-                          text: 'About',
-                          height: 30,
-                        ),
-                      ),
-                    ],
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          toolbarHeight: 50,
+          shadowColor: theme.shadowColor,
+          backgroundColor: theme.colorScheme.background,
+          foregroundColor: theme.colorScheme.primary,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(40),
+            child: SizedBox(
+              width: 350,
+              child: TabBar(
+                controller: tabBarController,
+                indicatorSize: TabBarIndicatorSize.label,
+                labelPadding: EdgeInsets.zero,
+                indicatorColor: theme.colorScheme.onBackground,
+                labelColor: theme.colorScheme.onBackground,
+                unselectedLabelColor: theme.colorScheme.onBackground.withOpacity(0.5),
+                labelStyle: theme.textTheme.headline5,
+                tabs: const [
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+                    child: Tab(
+                      text: 'Home',
+                      height: 30,
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+                    child: Tab(
+                      text: 'Recordings',
+                      height: 30,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+                    child: Tab(
+                      text: 'About',
+                      height: 30,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ];
-        },
+          ),
+        ),
         body: TabBarView(
           controller: tabBarController,
           children: [

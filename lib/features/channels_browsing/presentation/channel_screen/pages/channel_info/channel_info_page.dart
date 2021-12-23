@@ -13,15 +13,17 @@ class ChannelInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return BlocBuilder<ChannelCubit, LoadingState<Channel>>(
-      builder: (context, state) {
-        return state.map(
-          loading: (a) => const ChannelInfoLoading(),
-          ready: (a) => ChannelInfoReady(channel: a.data),
-          failed: (a) => const ChannelInfoLoading(),
-          waitingForConnection: (a) => const ChannelInfoLoading(),
-        );
-      },
+    return SingleChildScrollView(
+      child: BlocBuilder<ChannelCubit, LoadingState<Channel>>(
+        builder: (context, state) {
+          return state.map(
+            loading: (a) => const ChannelInfoLoading(),
+            ready: (a) => ChannelInfoReady(channel: a.data),
+            failed: (a) => const ChannelInfoLoading(),
+            waitingForConnection: (a) => const ChannelInfoLoading(),
+          );
+        },
+      ),
     );
   }
 }
