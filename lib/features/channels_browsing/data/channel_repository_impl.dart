@@ -15,7 +15,7 @@ class ChannelRepositoryImpl implements ChannelRepository {
   @override
   Future<Result<Channel>> loadChannel(String id) async {
     debugPrint('loadChannel called');
-    
+
     await Future.delayed(const Duration(seconds: 2));
     return Result.ok(
       Channel(
@@ -111,6 +111,7 @@ class ChannelRepositoryImpl implements ChannelRepository {
                   name: 'Talk name lorem ipsum dolor sit amet something something',
                   duration: const Duration(hours: 2, minutes: 30),
                   speakerId: 'speaker#$i',
+                  speakerUsername: 'username',
                 ),
               ),
           ],

@@ -8,5 +8,6 @@ class Talk with _$Talk {
     required String name,
     required Duration duration,
     required String speakerId,
+    required String speakerUsername,
   }) = _Talk;
 }

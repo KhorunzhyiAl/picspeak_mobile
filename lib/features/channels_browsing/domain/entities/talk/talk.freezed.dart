@@ -21,12 +21,14 @@ class _$TalkTearOff {
       {required String talkId,
       required String name,
       required Duration duration,
-      required String speakerId}) {
+      required String speakerId,
+      required String speakerUsername}) {
     return _Talk(
       talkId: talkId,
       name: name,
       duration: duration,
       speakerId: speakerId,
+      speakerUsername: speakerUsername,
     );
   }
 }
@@ -40,6 +42,7 @@ mixin _$Talk {
   String get name => throw _privateConstructorUsedError;
   Duration get duration => throw _privateConstructorUsedError;
   String get speakerId => throw _privateConstructorUsedError;
+  String get speakerUsername => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TalkCopyWith<Talk> get copyWith => throw _privateConstructorUsedError;
@@ -49,7 +52,12 @@ mixin _$Talk {
 abstract class $TalkCopyWith<$Res> {
   factory $TalkCopyWith(Talk value, $Res Function(Talk) then) =
       _$TalkCopyWithImpl<$Res>;
-  $Res call({String talkId, String name, Duration duration, String speakerId});
+  $Res call(
+      {String talkId,
+      String name,
+      Duration duration,
+      String speakerId,
+      String speakerUsername});
 }
 
 /// @nodoc
@@ -66,6 +74,7 @@ class _$TalkCopyWithImpl<$Res> implements $TalkCopyWith<$Res> {
     Object? name = freezed,
     Object? duration = freezed,
     Object? speakerId = freezed,
+    Object? speakerUsername = freezed,
   }) {
     return _then(_value.copyWith(
       talkId: talkId == freezed
@@ -84,6 +93,10 @@ class _$TalkCopyWithImpl<$Res> implements $TalkCopyWith<$Res> {
           ? _value.speakerId
           : speakerId // ignore: cast_nullable_to_non_nullable
               as String,
+      speakerUsername: speakerUsername == freezed
+          ? _value.speakerUsername
+          : speakerUsername // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -93,7 +106,12 @@ abstract class _$TalkCopyWith<$Res> implements $TalkCopyWith<$Res> {
   factory _$TalkCopyWith(_Talk value, $Res Function(_Talk) then) =
       __$TalkCopyWithImpl<$Res>;
   @override
-  $Res call({String talkId, String name, Duration duration, String speakerId});
+  $Res call(
+      {String talkId,
+      String name,
+      Duration duration,
+      String speakerId,
+      String speakerUsername});
 }
 
 /// @nodoc
@@ -111,6 +129,7 @@ class __$TalkCopyWithImpl<$Res> extends _$TalkCopyWithImpl<$Res>
     Object? name = freezed,
     Object? duration = freezed,
     Object? speakerId = freezed,
+    Object? speakerUsername = freezed,
   }) {
     return _then(_Talk(
       talkId: talkId == freezed
@@ -129,6 +148,10 @@ class __$TalkCopyWithImpl<$Res> extends _$TalkCopyWithImpl<$Res>
           ? _value.speakerId
           : speakerId // ignore: cast_nullable_to_non_nullable
               as String,
+      speakerUsername: speakerUsername == freezed
+          ? _value.speakerUsername
+          : speakerUsername // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -140,7 +163,8 @@ class _$_Talk implements _Talk {
       {required this.talkId,
       required this.name,
       required this.duration,
-      required this.speakerId});
+      required this.speakerId,
+      required this.speakerUsername});
 
   @override
   final String talkId;
@@ -150,10 +174,12 @@ class _$_Talk implements _Talk {
   final Duration duration;
   @override
   final String speakerId;
+  @override
+  final String speakerUsername;
 
   @override
   String toString() {
-    return 'Talk(talkId: $talkId, name: $name, duration: $duration, speakerId: $speakerId)';
+    return 'Talk(talkId: $talkId, name: $name, duration: $duration, speakerId: $speakerId, speakerUsername: $speakerUsername)';
   }
 
   @override
@@ -166,12 +192,14 @@ class _$_Talk implements _Talk {
             (identical(other.duration, duration) ||
                 other.duration == duration) &&
             (identical(other.speakerId, speakerId) ||
-                other.speakerId == speakerId));
+                other.speakerId == speakerId) &&
+            (identical(other.speakerUsername, speakerUsername) ||
+                other.speakerUsername == speakerUsername));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, talkId, name, duration, speakerId);
+  int get hashCode => Object.hash(
+      runtimeType, talkId, name, duration, speakerId, speakerUsername);
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +212,8 @@ abstract class _Talk implements Talk {
       {required String talkId,
       required String name,
       required Duration duration,
-      required String speakerId}) = _$_Talk;
+      required String speakerId,
+      required String speakerUsername}) = _$_Talk;
 
   @override
   String get talkId;
@@ -194,6 +223,8 @@ abstract class _Talk implements Talk {
   Duration get duration;
   @override
   String get speakerId;
+  @override
+  String get speakerUsername;
   @override
   @JsonKey(ignore: true)
   _$TalkCopyWith<_Talk> get copyWith => throw _privateConstructorUsedError;

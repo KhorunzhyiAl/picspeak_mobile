@@ -39,19 +39,32 @@ class TalkRecordingEntryWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildDuration(theme),
-        const SizedBox(width: 10),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            child: Text(
-              talkRecordingEntry.talk.name,
-              style: theme.textTheme.headline5?.copyWith(
-                color: theme.colorScheme.onBackground,
-              ),
+        const SizedBox(width: 5),
+        _buildTitle(theme),
+      ],
+    );
+  }
+
+  Expanded _buildTitle(ThemeData theme) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            talkRecordingEntry.talk.name,
+            style: theme.textTheme.headline5?.copyWith(
+              color: theme.colorScheme.onBackground,
             ),
           ),
-        ),
-      ],
+          const SizedBox(height: 5),
+          Text(
+            'By: ${talkRecordingEntry.talk.speakerUsername}',
+            style: theme.textTheme.caption?.copyWith(
+              color: theme.colorScheme.onSurface.withOpacity(0.5),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -71,7 +84,7 @@ class TalkRecordingEntryWidget extends StatelessWidget {
             child: Text(
               Utils.formatDuration(talkRecordingEntry.talk.duration),
               style: theme.textTheme.caption?.copyWith(
-                color: theme.colorScheme.onSurface,
+                color: theme.colorScheme.onSurface.withOpacity(0.5),
               ),
             ),
           ),
