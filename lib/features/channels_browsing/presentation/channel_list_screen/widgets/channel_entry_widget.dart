@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/channel.dart';
+import 'package:picspeak/features/channels_browsing/domain/entities/channel/channel.dart';
 import 'package:picspeak/core/presentation/routes.dart';
 import 'package:picspeak/core/utils/utils.dart';
 
@@ -77,7 +76,7 @@ class ChannelEntryWidget extends StatelessWidget {
                   Navigator.of(context).pushNamed(
                     Routes.channel,
                     arguments: {
-                      'channelId': channel.id,
+                      'channelId': channel.channelId,
                     },
                   );
                 },

@@ -8,4 +8,6 @@ final getIt = GetIt.instance;
   initializerName: r'$initGetIt', // default
   preferRelativeImports: false, // default
 )
-void configureDependencies() => $initGetIt(getIt);
+Future<void> configureDependencies() async {
+  await $initGetIt(getIt);
+}

@@ -14,7 +14,7 @@ class AnimatedTextSwitch extends StatefulWidget {
 }
 
 class _AnimatedTextSwitchState extends State<AnimatedTextSwitch>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   String oldText = '';
   late AnimationController animationController;
 
@@ -26,6 +26,13 @@ class _AnimatedTextSwitchState extends State<AnimatedTextSwitch>
       duration: const Duration(milliseconds: 130),
       vsync: this,
     );
+  }
+
+  @override
+  void dispose() {
+    
+    animationController.dispose();
+    super.dispose();
   }
 
   @override
