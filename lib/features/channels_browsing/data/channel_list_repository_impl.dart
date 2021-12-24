@@ -38,6 +38,7 @@ class ChannelListRepositoryImpl implements ChannelListRepository {
             Event(
               eventId: 'whatever',
               name: 'Event name lorem ipsum dolor sit amet something something',
+              description: Utils.loremIpsum,
               start: DateTime.now(),
               duration: const Duration(
                 hours: 2,

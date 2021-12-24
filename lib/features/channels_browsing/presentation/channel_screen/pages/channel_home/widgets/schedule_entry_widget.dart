@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:picspeak/core/presentation/widgets/overlayed_ink_well.dart';
 import 'package:picspeak/features/channels_browsing/domain/entities/event/event.dart';
 import 'package:picspeak/core/utils/utils.dart';
+import 'package:picspeak/features/channels_browsing/presentation/event_details_screen/event_details_screen.dart';
 
 class ScheduleEntryWidget extends StatelessWidget {
   const ScheduleEntryWidget({Key? key, required this.event}) : super(key: key);
@@ -21,7 +22,11 @@ class ScheduleEntryWidget extends StatelessWidget {
       child: OverlayedInkWell(
         child: _buildContents(theme),
         inkWell: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).push(
+              EventDetailsScreen.getRoute(event),
+            );
+          },
           splashColor: theme.colorScheme.onBackground.withOpacity(0.1),
           overlayColor: MaterialStateProperty.all(
             theme.colorScheme.onBackground.withOpacity(0.1),
@@ -33,13 +38,13 @@ class ScheduleEntryWidget extends StatelessWidget {
 
   Row _buildContents(ThemeData theme) {
     return Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildTime(theme, event),
-          const SizedBox(width: 10),
-          _buildName(event, theme),
-        ],
-      );
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildTime(theme, event),
+        const SizedBox(width: 10),
+        _buildName(event, theme),
+      ],
+    );
   }
 
   Expanded _buildName(Event event, ThemeData theme) {
