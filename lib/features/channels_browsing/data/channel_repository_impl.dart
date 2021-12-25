@@ -33,46 +33,47 @@ class ChannelRepositoryImpl implements ChannelRepository {
         ],
         events: [
           Event(
-            eventId: 'event1',
-            name: 'Event name lorem ipsum dolor sit amet something something',
-            start: DateTime.now(),
-            duration: const Duration(
-              hours: 2,
-              minutes: 30,
-            ),
-            talks: [],
-          ),
-          Event(
             eventId: 'event2',
             name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'
                 ' incididunt ut labore et dolore magna aliqua. ',
+            description: Utils.loremIpsum,
             start: DateTime.now(),
             duration: const Duration(
               hours: 0,
               minutes: 30,
             ),
-            talks: [],
+            talks: [
+              for (int i = 0; i < 4; ++i)
+                const Talk(
+                  talkId: 'talkId',
+                  name: 'Talk name lorem ipsum dolor sit amet something something',
+                  duration: Duration(hours: 1, minutes: 15),
+                  speakerId: 'speakerId',
+                  speakerUsername: 'Xx_UsernamE_xX',
+                ),
+            ],
           ),
-          Event(
-            eventId: 'event3',
-            name: 'Event name lorem ipsum dolor sit amet something something',
-            start: DateTime.now(),
-            duration: const Duration(
-              hours: 2,
-              minutes: 30,
+          for (int i = 0; i < 3; ++i)
+            Event(
+              eventId: 'event1',
+              name: 'Event name lorem ipsum dolor sit amet something something',
+              description: Utils.loremIpsum,
+              start: DateTime.now(),
+              duration: const Duration(
+                hours: 2,
+                minutes: 30,
+              ),
+              talks: [
+                for (int i = 0; i < 4; ++i)
+                  const Talk(
+                    talkId: 'talkId',
+                    name: 'Talk name lorem ipsum dolor sit amet something something',
+                    duration: Duration(hours: 1, minutes: 15),
+                    speakerId: 'speakerId',
+                    speakerUsername: 'Xx_UsernamE_xX',
+                  ),
+              ],
             ),
-            talks: [],
-          ),
-          Event(
-            eventId: 'event4',
-            name: 'Event name lorem ipsum dolor sit amet something something',
-            start: DateTime.now(),
-            duration: const Duration(
-              hours: 2,
-              minutes: 30,
-            ),
-            talks: [],
-          ),
         ],
       ),
     );
@@ -92,6 +93,7 @@ class ChannelRepositoryImpl implements ChannelRepository {
           event: Event(
             eventId: 'event#$i',
             name: 'Event name lorem ipsum dolor sit amet something something',
+            description: Utils.loremIpsum,
             start: DateTime.now(),
             duration: const Duration(
               hours: 2,
