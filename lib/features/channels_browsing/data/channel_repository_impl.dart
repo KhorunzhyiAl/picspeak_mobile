@@ -44,12 +44,13 @@ class ChannelRepositoryImpl implements ChannelRepository {
             ),
             talks: [
               for (int i = 0; i < 4; ++i)
-                const Talk(
+                Talk(
                   talkId: 'talkId',
                   name: 'Talk name lorem ipsum dolor sit amet something something',
-                  duration: Duration(hours: 1, minutes: 15),
+                  duration: const Duration(hours: 1, minutes: 15),
                   speakerId: 'speakerId',
                   speakerUsername: 'Xx_UsernamE_xX',
+                  slidesAreAvailable: i % 2 == 0, // just random stuff
                 ),
             ],
           ),
@@ -71,6 +72,7 @@ class ChannelRepositoryImpl implements ChannelRepository {
                     duration: Duration(hours: 1, minutes: 15),
                     speakerId: 'speakerId',
                     speakerUsername: 'Xx_UsernamE_xX',
+                    slidesAreAvailable: true,
                   ),
               ],
             ),
@@ -114,6 +116,7 @@ class ChannelRepositoryImpl implements ChannelRepository {
                   duration: const Duration(hours: 2, minutes: 30),
                   speakerId: 'speaker#$i',
                   speakerUsername: 'username',
+                  slidesAreAvailable: true,
                 ),
               ),
           ],
