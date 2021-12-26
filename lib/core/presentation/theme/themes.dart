@@ -53,10 +53,15 @@ class MyThemes {
         fontSize: 12,
         fontWeight: FontWeight.w500,
       ),
+      subtitle1: TextStyle(
+        fontFamily: 'Farro',
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      ),
       subtitle2: TextStyle(
         fontFamily: 'Farro',
         fontSize: 14,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w300,
       ),
 
       bodyText1: TextStyle(

@@ -1,24 +1,33 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyCard extends StatelessWidget {
   const MyCard({
     this.child,
+    this.height,
+    this.width,
     Key? key,
   }) : super(key: key);
 
   final Widget? child;
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      margin: EdgeInsets.zero,
-      clipBehavior: Clip.hardEdge,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(5),
+    final theme = Theme.of(context);
+    return SizedBox(
+      height: height,
+      width: width,
+      child: Card(
+        elevation: 0,
+        margin: EdgeInsets.zero,
+        clipBehavior: Clip.hardEdge,
+        color: theme.colorScheme.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }

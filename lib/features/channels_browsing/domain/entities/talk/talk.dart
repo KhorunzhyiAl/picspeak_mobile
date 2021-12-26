@@ -9,5 +9,6 @@ class Talk with _$Talk {
     required Duration duration,
     required String speakerId,
     required String speakerUsername,
+    required bool slidesAreAvailable,
   }) = _Talk;
 }
