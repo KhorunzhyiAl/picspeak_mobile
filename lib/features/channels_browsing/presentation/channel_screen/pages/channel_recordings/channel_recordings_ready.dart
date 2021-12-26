@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/event_recording_entry/event_recording_entry.dart';
+import 'package:picspeak/features/shared/domain/entities/event_recording_entry/event_recording_entry.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_recordings/widgets/event_recording_entry_widget.dart';
 
 class ChannelRecordingsReady extends StatelessWidget {

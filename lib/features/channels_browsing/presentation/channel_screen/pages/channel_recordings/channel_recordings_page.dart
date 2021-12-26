@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:picspeak/core/presentation/injectable/injectable_init.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/event_recording_entry/event_recording_entry.dart';
+import 'package:picspeak/features/shared/domain/entities/event_recording_entry/event_recording_entry.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_cubit.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_recordings_cubit.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_recordings/channel_recordings_placeholder.dart';

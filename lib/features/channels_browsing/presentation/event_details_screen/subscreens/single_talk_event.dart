@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/event/event.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/talk/talk.dart';
+import 'package:picspeak/features/shared/domain/entities/event/event.dart';
+import 'package:picspeak/features/shared/domain/entities/talk/talk.dart';
 import 'package:picspeak/features/channels_browsing/presentation/event_details_screen/widgets/dashed_line_widget.dart';
 import 'package:picspeak/features/channels_browsing/presentation/event_details_screen/widgets/event_time_data_widget.dart';
 

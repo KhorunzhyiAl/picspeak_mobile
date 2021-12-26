@@ -1,8 +1,8 @@
 import 'package:injectable/injectable.dart';
 import 'package:picspeak/core/utils/utils.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/channel/channel.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/event/event.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/user/user.dart';
+import 'package:picspeak/features/shared/domain/entities/channel/channel.dart';
+import 'package:picspeak/features/shared/domain/entities/event/event.dart';
+import 'package:picspeak/features/shared/domain/entities/user/user.dart';
 import 'package:picspeak/features/channels_browsing/domain/repositories/channel_list_repository.dart';
 import 'package:picspeak/core/utils/result/result.dart';
 

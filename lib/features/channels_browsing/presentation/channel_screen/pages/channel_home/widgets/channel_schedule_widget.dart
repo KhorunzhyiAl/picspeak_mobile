@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/channel/channel.dart';
+import 'package:picspeak/features/shared/domain/entities/channel/channel.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_home/widgets/schedule_entry_widget.dart';
 
 class ChannelScheduleWidget extends StatelessWidget {

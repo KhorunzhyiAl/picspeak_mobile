@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:picspeak/core/presentation/widgets/overlayed_ink_well.dart';
 import 'package:picspeak/core/utils/utils.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/event_recording_entry/event_recording_entry.dart';
+import 'package:picspeak/features/shared/domain/entities/event_recording_entry/event_recording_entry.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_recordings/widgets/talk_recordings_list.dart';
 
 class EventRecordingEntryWidget extends StatefulWidget {

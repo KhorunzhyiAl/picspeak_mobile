@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/channel/channel.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/event/event.dart';
+import 'package:picspeak/features/shared/domain/entities/channel/channel.dart';
+import 'package:picspeak/features/shared/domain/entities/event/event.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_home/widgets/broadcast_active_widget.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_home/widgets/broadcast_no_events_widget.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_home/widgets/broadcast_upcoming_widget.dart';
