@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/channel/channel.dart';
+import 'package:picspeak/features/shared/domain/entities/channel/channel.dart';
 import 'package:picspeak/core/presentation/routes.dart';
 import 'package:picspeak/core/utils/utils.dart';
 

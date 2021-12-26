@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:picspeak/core/utils/utils.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/channel/channel.dart';
+import 'package:picspeak/features/shared/domain/entities/channel/channel.dart';
 
 class BroadcastUpcomingWidget extends StatelessWidget {
   const BroadcastUpcomingWidget({

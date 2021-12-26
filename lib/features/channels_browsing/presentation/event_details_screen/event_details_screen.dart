@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/event/event.dart';
+import 'package:picspeak/features/shared/domain/entities/event/event.dart';
 import 'package:picspeak/features/channels_browsing/presentation/event_details_screen/subscreens/single_talk_event.dart';
 import 'package:picspeak/features/channels_browsing/presentation/event_details_screen/subscreens/talk_series_event.dart';
 

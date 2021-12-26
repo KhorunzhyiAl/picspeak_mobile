@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:picspeak/core/utils/utils.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/event/event.dart';
+import 'package:picspeak/features/shared/domain/entities/event/event.dart';
 
 class EventTimeDataWidget extends StatelessWidget {
   const EventTimeDataWidget({

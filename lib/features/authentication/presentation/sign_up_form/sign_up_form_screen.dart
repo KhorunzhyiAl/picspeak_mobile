@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:picspeak/features/app_state/presentation/auth_forms/log_in_form/widgets/log_in_fields_widget.dart';
+import 'package:picspeak/features/authentication/presentation/sign_up_form/widgets/sign_up_fields_widget.dart';
 
-class LogInFormScreen extends StatelessWidget {
-  const LogInFormScreen({Key? key}) : super(key: key);
+class SignUpFormScreen extends StatelessWidget {
+  const SignUpFormScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class LogInFormScreen extends StatelessWidget {
                 child: Center(
                   child: Container(
                     height: 450,
-                    width: size.width > 500 ? 500 : size.width,
+                    width: size.width > 600 ? 600 : size.width,
                     decoration: BoxDecoration(
                       color: theme.colorScheme.background,
                       borderRadius: const BorderRadius.only(
@@ -60,7 +60,7 @@ class LogInFormScreen extends StatelessWidget {
                         vertical: 15,
                         horizontal: 15,
                       ),
-                      child: LogInFieldsWidget(),
+                      child: SignUpFieldsWidget(),
                     ),
                   ),
                 ),
@@ -72,3 +72,4 @@ class LogInFormScreen extends StatelessWidget {
     );
   }
 }
+

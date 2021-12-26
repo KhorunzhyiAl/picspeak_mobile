@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/event/event.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/user/user.dart';
+import 'package:picspeak/features/shared/domain/entities/event/event.dart';
+import 'package:picspeak/features/shared/domain/entities/user/user.dart';
 
 part 'channel.freezed.dart';
 

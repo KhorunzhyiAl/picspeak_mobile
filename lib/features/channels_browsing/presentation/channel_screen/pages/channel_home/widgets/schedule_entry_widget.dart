@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:picspeak/core/presentation/widgets/overlayed_ink_well.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/event/event.dart';
+import 'package:picspeak/features/shared/domain/entities/event/event.dart';
 import 'package:picspeak/core/utils/utils.dart';
 import 'package:picspeak/features/channels_browsing/presentation/event_details_screen/event_details_screen.dart';
 

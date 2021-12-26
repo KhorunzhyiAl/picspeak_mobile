@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:picspeak/features/channels_browsing/domain/entities/channel/channel.dart';
+import 'package:picspeak/features/shared/domain/entities/channel/channel.dart';
 import 'package:picspeak/core/utils/loading_state/loading_state.dart';
 import 'package:picspeak/features/channels_browsing/domain/get_channel_interactor.dart';
 

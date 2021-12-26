@@ -15,17 +15,17 @@ import 'package:picspeak/features/app_state/data/repositories/mock_connection_re
 import 'package:picspeak/features/app_state/domain/app_repository.dart' as _i3;
 import 'package:picspeak/features/app_state/domain/interactors/auth_with_token_interactor.dart'
     as _i5;
-import 'package:picspeak/features/app_state/domain/interactors/log_in_interactor.dart'
+import 'package:picspeak/features/authentication/domain/interactors/log_in_interactor.dart'
     as _i14;
-import 'package:picspeak/features/app_state/domain/interactors/sign_up_interactor.dart'
+import 'package:picspeak/features/authentication/domain/interactors/sign_up_interactor.dart'
     as _i15;
 import 'package:picspeak/features/app_state/domain/repositories/connection_repository.dart'
     as _i10;
 import 'package:picspeak/features/app_state/presentation/app_state/blocs/app_state_cubit.dart'
     as _i16;
-import 'package:picspeak/features/app_state/presentation/auth_forms/log_in_form/cubit/log_in_form_cubit.dart'
+import 'package:picspeak/features/authentication/presentation/log_in_form/cubit/log_in_form_cubit.dart'
     as _i21;
-import 'package:picspeak/features/app_state/presentation/auth_forms/sign_up_form/cubit/sign_up_form_cubit.dart'
+import 'package:picspeak/features/authentication/presentation/sign_up_form/cubit/sign_up_form_cubit.dart'
     as _i22;
 import 'package:picspeak/features/channels_browsing/data/channel_list_repository_impl.dart'
     as _i7;

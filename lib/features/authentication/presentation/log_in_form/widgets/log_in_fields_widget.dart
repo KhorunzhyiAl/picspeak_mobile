@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:picspeak/core/presentation/routes.dart';
 import 'package:picspeak/features/app_state/presentation/app_state/blocs/app_state_cubit.dart';
-import 'package:picspeak/features/app_state/presentation/auth_forms/sign_up_form/cubit/sign_up_form_cubit.dart';
-import 'package:picspeak/features/app_state/presentation/auth_forms/sign_up_form/cubit/sign_up_form_data.dart';
-import 'package:picspeak/features/app_state/presentation/auth_forms/widgets/main_auth_button.dart';
-import 'package:picspeak/features/app_state/presentation/auth_forms/widgets/my_text_field.dart';
-import 'package:picspeak/features/app_state/presentation/auth_forms/widgets/secondary_auth_button.dart';
+import 'package:picspeak/features/authentication/presentation/log_in_form/cubit/log_in_form_cubit.dart';
+import 'package:picspeak/features/authentication/presentation/log_in_form/cubit/log_in_form_data.dart';
+import 'package:picspeak/features/authentication/presentation/widgets/main_auth_button.dart';
+import 'package:picspeak/features/authentication/presentation/widgets/my_text_field.dart';
+import 'package:picspeak/features/authentication/presentation/widgets/secondary_auth_button.dart';
 
-class SignUpFieldsWidget extends StatefulWidget {
-  const SignUpFieldsWidget({
+class LogInFieldsWidget extends StatefulWidget {
+  const LogInFieldsWidget({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<SignUpFieldsWidget> createState() => _SignUpFieldsWidgetState();
+  State<LogInFieldsWidget> createState() => _LogInFieldsWidgetState();
 }
 
-class _SignUpFieldsWidgetState extends State<SignUpFieldsWidget> {
+class _LogInFieldsWidgetState extends State<LogInFieldsWidget> {
   @override
   void initState() {
     super.initState();
 
-    final signUpFormCubit = BlocProvider.of<SignUpFormCubit>(context, listen: false);
+    final signUpFormCubit = BlocProvider.of<LogInFormCubit>(context, listen: false);
     final appStateCubit = BlocProvider.of<AppStateCubit>(context, listen: false);
     signUpFormCubit.provideAppStateCubit(appStateCubit);
   }
@@ -30,57 +30,45 @@ class _SignUpFieldsWidgetState extends State<SignUpFieldsWidget> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const Spacer(),
-        BlocBuilder<SignUpFormCubit, SignUpFormData>(
+        BlocBuilder<LogInFormCubit, LogInFormData>(
           builder: (context, state) {
             return MyTextField(
               name: 'Login',
               errorText: state.loginError,
+              showErrorText: false,
               onTextChanged: (text) {
-                BlocProvider.of<SignUpFormCubit>(context).onLoginChanged(text);
+                BlocProvider.of<LogInFormCubit>(context).onLoginChanged(text);
               },
             );
           },
         ),
         const SizedBox(height: 15),
-        BlocBuilder<SignUpFormCubit, SignUpFormData>(
+        BlocBuilder<LogInFormCubit, LogInFormData>(
           builder: (context, state) {
             return MyTextField(
               name: 'Password',
               errorText: state.passwordError,
+              showErrorText: false,
               obscure: true,
               onTextChanged: (text) {
-                BlocProvider.of<SignUpFormCubit>(context).onPasswordChanged(text);
-              },
-            );
-          },
-        ),
-        const SizedBox(height: 15),
-        BlocBuilder<SignUpFormCubit, SignUpFormData>(
-          builder: (context, state) {
-            return MyTextField(
-              name: 'Repeat password',
-              errorText: state.repeatPasswordError,
-              obscure: true,
-              onTextChanged: (text) {
-                BlocProvider.of<SignUpFormCubit>(context).onRepeatPasswordChanged(text);
+                BlocProvider.of<LogInFormCubit>(context).onPasswordChanged(text);
               },
             );
           },
         ),
         const SizedBox(height: 50),
-        BlocBuilder<SignUpFormCubit, SignUpFormData>(
+        BlocBuilder<LogInFormCubit, LogInFormData>(
           builder: (context, state) {
             return MainAuthButton(
-              text: 'Sign Up',
+              text: 'Log In',
               enabled: state.isReady,
               showLoading: state.isSubmitting,
               onPressed: () async {
-                final cubit = BlocProvider.of<SignUpFormCubit>(context);
+                final cubit = BlocProvider.of<LogInFormCubit>(context);
                 await cubit.onSubmit();
               },
             );
@@ -91,13 +79,13 @@ class _SignUpFieldsWidgetState extends State<SignUpFieldsWidget> {
           children: [
             Expanded(
               child: SecondaryAuthButton(
+                text: 'Sign Up',
                 onPressed: () {
                   Navigator.of(context).pushNamedAndRemoveUntil(
-                    Routes.logIn,
+                    Routes.signUp,
                     (route) => false,
                   );
                 },
-                text: 'Log In',
               ),
             ),
             const SizedBox(width: 5),
