@@ -1,8 +1,27 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:picspeak/core/presentation/injectable/injectable_init.dart';
+import 'package:picspeak/features/authentication/presentation/log_in_form/cubit/log_in_form_cubit.dart';
 import 'package:picspeak/features/authentication/presentation/log_in_form/widgets/log_in_fields_widget.dart';
 
 class LogInFormScreen extends StatelessWidget {
   const LogInFormScreen({Key? key}) : super(key: key);
+
+  static Route getRoute() {
+    return CupertinoPageRoute(builder: (context) {
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => LogInFormCubit(
+              getIt.get(),
+            ),
+          )
+        ],
+        child: const LogInFormScreen(),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

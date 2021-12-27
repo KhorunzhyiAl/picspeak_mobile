@@ -11,7 +11,7 @@ class AppRepositoryImpl implements AppRepository {
   Future<Failure?> authWithToken() async {
     await Future.delayed(const Duration(seconds: 5));
 
-    return null;
+    return Failure.empty();
   }
 
   @override

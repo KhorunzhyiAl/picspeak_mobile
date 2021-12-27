@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_screen/channel_screen.dart';
 import 'package:picspeak/features/shared/domain/entities/channel/channel.dart';
-import 'package:picspeak/core/presentation/routes.dart';
 import 'package:picspeak/core/utils/utils.dart';
 
 class ChannelEntryWidget extends StatelessWidget {
@@ -73,11 +73,8 @@ class ChannelEntryWidget extends StatelessWidget {
               type: MaterialType.transparency,
               child: InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed(
-                    Routes.channel,
-                    arguments: {
-                      'channelId': channel.channelId,
-                    },
+                  Navigator.of(context).push(
+                    ChannelScreen.getRoute(channelId: channel.channelId),
                   );
                 },
               ),

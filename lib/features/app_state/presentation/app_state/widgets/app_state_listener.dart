@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:picspeak/core/presentation/routes.dart';
 import 'package:picspeak/features/app_state/presentation/app_state/blocs/app_state_cubit.dart';
+import 'package:picspeak/features/authentication/presentation/log_in_form/log_in_form_screen.dart';
+import 'package:picspeak/features/channels_browsing/presentation/channel_list_screen/channel_list_screen.dart';
 
 class AppStateListener extends StatefulWidget {
   const AppStateListener({
@@ -30,35 +31,30 @@ class _AppStateListenerState extends State<AppStateListener> {
   void _startListening() {
     final cubit = BlocProvider.of<AppStateCubit>(context);
     cubit.onAppLoaded();
-    
+
     cubit.stream.listen((event) {
       if (!event.navigate) return;
 
-      debugPrint('app state event: $event');
       event.maybeMap(
         online: (a) {
-          a.authState.map(
-            guest: (a) {
-              openRoute(Routes.home);
-            },
-            authenticated: (a) {
-              openRoute(Routes.home);
-            },
-            unauthenticated: (a) {
-              openRoute(Routes.logIn);
-            }
-          );
+          a.authState.map(guest: (a) {
+            navigator?.push(ChannelListScreen.getRoute());
+          }, authenticated: (a) {
+            navigator?.push(ChannelListScreen.getRoute());
+          }, unauthenticated: (a) {
+            navigator?.pushAndRemoveUntil(
+              LogInFormScreen.getRoute(),
+              (_) => false,
+            );
+          });
         },
         orElse: () => null,
       );
     });
   }
 
-  openRoute(String route) {
-    widget.navigatorKey.currentState?.pushNamedAndRemoveUntil(
-      route,
-      (route) => false,
-    );
+  NavigatorState? get navigator {
+    return widget.navigatorKey.currentState;
   }
 
   @override

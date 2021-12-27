@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:picspeak/core/presentation/routes.dart';
 import 'package:picspeak/features/app_state/presentation/app_state/blocs/app_state_cubit.dart';
 import 'package:picspeak/features/authentication/presentation/log_in_form/cubit/log_in_form_cubit.dart';
 import 'package:picspeak/features/authentication/presentation/log_in_form/cubit/log_in_form_data.dart';
+import 'package:picspeak/features/authentication/presentation/sign_up_form/sign_up_form_screen.dart';
 import 'package:picspeak/features/authentication/presentation/widgets/main_auth_button.dart';
 import 'package:picspeak/features/authentication/presentation/widgets/my_text_field.dart';
 import 'package:picspeak/features/authentication/presentation/widgets/secondary_auth_button.dart';
@@ -81,9 +81,9 @@ class _LogInFieldsWidgetState extends State<LogInFieldsWidget> {
               child: SecondaryAuthButton(
                 text: 'Sign Up',
                 onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    Routes.signUp,
-                    (route) => false,
+                  Navigator.of(context).pushAndRemoveUntil(
+                    SignUpFormScreen.getRoute(),
+                    (_) => false,
                   );
                 },
               ),
