@@ -1,16 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:picspeak/core/presentation/injectable/injectable_init.dart';
-import 'package:picspeak/core/presentation/routes.dart';
 import 'package:picspeak/core/presentation/splash_screen.dart';
 
 class AppLoadingBuilder extends StatefulWidget {
   const AppLoadingBuilder({
     required this.nav,
-    required this.builder,
+    required this.child,
     Key? key,
   }) : super(key: key);
 
-  final Widget Function(BuildContext) builder;
+  final Widget child;
   final GlobalKey<NavigatorState> nav;
 
   @override
@@ -31,8 +30,10 @@ class _AppLoadingBuilderState extends State<AppLoadingBuilder> {
     return FutureBuilder(
       future: configureDependenciesFuture,
       builder: (context, snapshot) {
+        debugPrint('whaaaaaaaat');
         if (snapshot.connectionState == ConnectionState.done) {
-          return widget.builder(context);
+          debugPrint('return widget.child (connectionState = done)');
+          return widget.child;
         } else {
           return const SplashScreen();
         }

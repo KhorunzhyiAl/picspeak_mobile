@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:picspeak/core/presentation/injectable/injectable_init.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_home/channel_home_page.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/cubit/channel_cubit.dart';
 import 'package:picspeak/features/channels_browsing/presentation/channel_screen/pages/channel_info/channel_info_page.dart';
@@ -10,6 +12,19 @@ class ChannelScreen extends StatefulWidget {
     Key? key,
     required this.channelId,
   }) : super(key: key);
+
+  static Route getRoute({required String channelId}) {
+    return CupertinoPageRoute(builder: (context) {
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider<ChannelCubit>(
+            create: (context) => getIt.get(),
+          )
+        ],
+        child: ChannelScreen(channelId: channelId),
+      );
+    });
+  }
 
   final String channelId;
 
